@@ -1,1287 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A Special Gift For Mithlesh Ma'am</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Arial,sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
-}
-
-
-/* =========================
-   BACKGROUND GLOW
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#6c63ff;
-    filter:blur(180px);
-    opacity:.18;
-    top:-150px;
-    left:-150px;
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:450px;
-    height:450px;
-    background:#00d9ff;
-    filter:blur(180px);
-    opacity:.12;
-    right:-150px;
-    bottom:-150px;
-    z-index:-2;
-}
-
-
-/* =========================
-   🌸❤️ FLOWING FLOWERS
-========================= */
-
-.floating{
-    position:fixed;
-
-    top:-70px;
-
-    z-index:9999;
-
-    pointer-events:none;
-
-    user-select:none;
-
-    animation:
-    fall linear forwards;
-}
-
-@keyframes fall{
-
-    0%{
-        transform:
-        translateY(-80px)
-        translateX(0)
-        rotate(0deg)
-        scale(.7);
-
-        opacity:0;
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    30%{
-        transform:
-        translateY(30vh)
-        translateX(45px)
-        rotate(100deg)
-        scale(1);
-    }
-
-    55%{
-        transform:
-        translateY(55vh)
-        translateX(-35px)
-        rotate(200deg)
-        scale(1.1);
-    }
-
-    80%{
-        transform:
-        translateY(80vh)
-        translateX(50px)
-        rotate(290deg)
-        scale(.9);
-    }
-
-    100%{
-        transform:
-        translateY(110vh)
-        translateX(-60px)
-        rotate(360deg)
-        scale(.7);
-
-        opacity:0;
-    }
-
-}
-
-
-/* =========================
-   MAIN SECTION
-========================= */
-
-.gift-section{
-
-    min-height:100vh;
-
-    padding:80px 20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-}
-
-
-/* =========================
-   HEADING
-========================= */
-
-.gift-heading span{
-
-    color:#8d83ff;
-
-    font-size:13px;
-
-    letter-spacing:4px;
-
-}
-
-.gift-heading h1{
-
-    font-size:
-    clamp(38px,7vw,75px);
-
-    margin:18px 0;
-
-    background:
-    linear-gradient(
-        90deg,
-        #ffffff,
-        #a49cff,
-        #76e8ff
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-    animation:titleGlow 3s infinite alternate;
-
-}
-
-@keyframes titleGlow{
-
-    from{
-        filter:drop-shadow(
-            0 0 5px
-            rgba(124,108,255,.2)
-        );
-    }
-
-    to{
-        filter:drop-shadow(
-            0 0 25px
-            rgba(124,108,255,.6)
-        );
-    }
-
-}
-
-.gift-heading p{
-
-    color:#9298b2;
-
-    font-size:16px;
-
-}
-
-
-/* =========================
-   GIFT WRAPPER
-========================= */
-
-.gift-wrapper{
-
-    margin-top:90px;
-
-    width:240px;
-
-    height:280px;
-
-    cursor:pointer;
-
-    position:relative;
-
-}
-
-
-/* =========================
-   GIFT
-========================= */
-
-.gift{
-
-    position:relative;
-
-    width:170px;
-
-    height:150px;
-
-    margin:auto;
-
-    top:30px;
-
-    animation:
-    giftFloat 2.5s ease-in-out infinite;
-
-}
-
-@keyframes giftFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-16px);
-    }
-
-}
-
-
-/* =========================
-   GIFT BOX
-========================= */
-
-.gift-box{
-
-    position:absolute;
-
-    width:170px;
-
-    height:120px;
-
-    bottom:0;
-
-    background:
-    linear-gradient(
-        135deg,
-        #6d63ff,
-        #4439ad
-    );
-
-    border-radius:9px;
-
-    box-shadow:
-
-    0 30px 60px
-    rgba(0,0,0,.5),
-
-    inset 0 0 30px
-    rgba(255,255,255,.08);
-
-}
-
-
-/* =========================
-   RIBBON
-========================= */
-
-.vertical-ribbon{
-
-    position:absolute;
-
-    width:25px;
-
-    height:120px;
-
-    left:72px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #ffd86b,
-        #fff4b0,
-        #ffd86b
-    );
-
-}
-
-.horizontal-ribbon{
-
-    position:absolute;
-
-    width:170px;
-
-    height:22px;
-
-    top:45px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #ffd86b,
-        #fff4b0,
-        #ffd86b
-    );
-
-}
-
-
-/* =========================
-   LID
-========================= */
-
-.gift-lid{
-
-    position:absolute;
-
-    width:185px;
-
-    height:38px;
-
-    left:-7px;
-
-    top:10px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #867dff,
-        #554bc4
-    );
-
-    border-radius:9px;
-
-    z-index:5;
-
-    transition:
-    1s cubic-bezier(.2,.8,.2,1);
-
-    box-shadow:
-    0 12px 28px
-    rgba(0,0,0,.4);
-
-}
-
-
-/* =========================
-   BOW
-========================= */
-
-.bow{
-
-    position:absolute;
-
-    width:60px;
-
-    height:38px;
-
-    border:
-    8px solid #ffd86b;
-
-    border-radius:50%;
-
-    top:-20px;
-
-}
-
-.bow.left{
-
-    left:45px;
-
-    transform:rotate(25deg);
-
-}
-
-.bow.right{
-
-    left:78px;
-
-    transform:rotate(-25deg);
-
-}
-
-
-/* =========================
-   OPEN GIFT
-========================= */
-
-.gift-wrapper.open .gift{
-
-    animation:none;
-
-    transform:
-    translateY(10px);
-
-}
-
-.gift-wrapper.open .gift-lid{
-
-    transform:
-    translateY(-85px)
-    rotate(-8deg);
-
-}
-
-
-/* =========================
-   CLICK TEXT
-========================= */
-
-.click-text{
-
-    margin-top:55px;
-
-    color:#aaa5ff;
-
-    font-size:14px;
-
-    animation:
-    clickPulse 1.5s infinite;
-
-}
-
-@keyframes clickPulse{
-
-    0%,100%{
-
-        opacity:.5;
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        opacity:1;
-
-        transform:scale(1.08);
-
-    }
-
-}
-
-
-/* =================================================
-   💌 NEW CARD
-================================================= */
-
-.new-card{
-
-    position:relative;
-
-    width:min(92%,720px);
-
-    margin-top:70px;
-
-    padding:60px 50px;
-
-    border-radius:35px;
-
-    background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.13),
-        rgba(255,255,255,.035)
-    );
-
-    border:
-    1px solid
-    rgba(255,255,255,.17);
-
-    backdrop-filter:
-    blur(25px);
-
-    box-shadow:
-    0 35px 100px
-    rgba(0,0,0,.5);
-
-    overflow:hidden;
-
-    opacity:0;
-
-    transform:
-    translateY(180px)
-    scale(.6)
-    rotateX(20deg);
-
-    pointer-events:none;
-
-    transition:
-    1.3s cubic-bezier(.17,.84,.44,1);
-
-}
-
-
-/* CARD SHOW */
-
-.new-card.show{
-
-    opacity:1;
-
-    transform:
-    translateY(0)
-    scale(1)
-    rotateX(0);
-
-    pointer-events:auto;
-
-}
-
-
-/* =========================
-   CARD GLOW
-========================= */
-
-.card-glow{
-
-    position:absolute;
-
-    width:300px;
-
-    height:300px;
-
-    background:#756cff;
-
-    filter:blur(130px);
-
-    opacity:.2;
-
-    top:-150px;
-
-    left:50%;
-
-    transform:
-    translateX(-50%);
-
-    animation:
-    glowMove 4s infinite alternate;
-
-}
-
-@keyframes glowMove{
-
-    from{
-
-        transform:
-        translateX(-50%)
-        scale(.8);
-
-    }
-
-    to{
-
-        transform:
-        translateX(-50%)
-        scale(1.3);
-
-    }
-
-}
-
-
-/* =========================
-   CARD CONTENT
-========================= */
-
-.card-content{
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-.card-top span{
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-    color:#8f86ff;
-
-}
-
-
-/* FLOWER */
-
-.flower{
-
-    font-size:65px;
-
-    margin:25px 0 10px;
-
-    animation:
-    flowerFloat 2s
-    infinite ease-in-out;
-
-}
-
-@keyframes flowerFloat{
-
-    0%,100%{
-
-        transform:
-        translateY(0)
-        rotate(0);
-
-    }
-
-    50%{
-
-        transform:
-        translateY(-8px)
-        rotate(3deg);
-
-    }
-
-}
-
-
-/* CARD TITLE */
-
-.card-content h2{
-
-    font-size:
-    clamp(30px,5vw,45px);
-
-    margin-bottom:20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #fff,
-        #a49cff,
-        #76e8ff
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-}
-
-
-/* LINE */
-
-.line{
-
-    width:80px;
-
-    height:2px;
-
-    margin:
-    0 auto 30px;
-
-    background:
-    linear-gradient(
-        90deg,
-        transparent,
-        #8b82ff,
-        transparent
-    );
-
-}
-
-
-/* MESSAGE */
-
-.main-message{
-
-    font-size:18px !important;
-
-    color:#d2d5e5 !important;
-
-    line-height:1.9 !important;
-
-}
-
-.card-content p{
-
-    color:#969db8;
-
-    line-height:1.8;
-
-    margin:18px auto;
-
-    max-width:570px;
-
-}
-
-
-/* SIGNATURE */
-
-.signature{
-
-    margin-top:35px;
-
-    font-size:18px;
-
-    color:#c7cbe0;
-
-}
-
-.signature strong{
-
-    display:block;
-
-    font-size:26px;
-
-    margin-top:10px;
-
-    animation:
-    heartBeat 1.2s infinite;
-
-}
-
-@keyframes heartBeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.25);
-    }
-
-}
-
-
-/* CARD BOTTOM */
-
-.card-bottom{
-
-    margin-top:35px;
-
-    padding-top:20px;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.08);
-
-    font-size:12px;
-
-    color:#6f7691;
-
-}
-
-
-/* =========================
-   FINAL MESSAGE
-========================= */
-
-.final{
-
-    text-align:center;
-
-    padding:80px 20px 120px;
-
-}
-
-.final h2{
-
-    font-size:
-    clamp(35px,7vw,70px);
-
-    background:
-    linear-gradient(
-        90deg,
-        #fff,
-        #7c6cff,
-        #00d9ff
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-}
-
-.final p{
-
-    color:#9ca3bd;
-
-    margin-top:20px;
-
-    font-size:17px;
-
-}
-
-.heart{
-
-    display:inline-block;
-
-    animation:
-    beat 1s infinite;
-
-}
-
-@keyframes beat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.25);
-    }
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    text-align:center;
-
-    padding:25px;
-
-    color:#656b83;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
-    font-size:13px;
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .gift-section{
-
-        padding:
-        70px 15px;
-
-    }
-
-    .new-card{
-
-        padding:
-        45px 25px;
-
-    }
-
-    .main-message{
-
-        font-size:16px !important;
-
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithlesh Ma'am | Master in English</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #07080d;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* Sakura & Floating Particles Background */
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            border-radius: 150% 0 150% 0;
+            animation: fall 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg) scale(1.2); opacity: 0.1; }
+        }
+
+        /* Ultimate Glass Card */
+        .master-card {
+            position: relative;
+            z-index: 10;
+            width: 390px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 28px;
+            padding: 45px 30px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 
+                        0 0 40px rgba(255, 117, 140, 0.25),
+                        inset 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .master-card:hover {
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8), 
+                        0 0 60px rgba(255, 117, 140, 0.5);
+        }
+
+        /* Monogram Box */
+        .crown-box {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .ring-aura {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(#ff758c, #ffd700, #7928ca, #ff758c);
+            animation: rotateAura 4s linear infinite;
+            filter: blur(2px);
+        }
+
+        @keyframes rotateAura {
+            100% { transform: rotate(360deg); }
+        }
+
+        .monogram {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #0f1017;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 54px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #ff758c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border: 3px solid #1a1b26;
+            box-shadow: inset 0 0 15px rgba(255, 117, 140, 0.5);
+        }
+
+        .badge-tag {
+            display: inline-block;
+            padding: 6px 18px;
+            background: linear-gradient(90deg, rgba(255, 117, 140, 0.2), rgba(255, 215, 0, 0.2));
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #ffd700;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 117, 140, 0.7);
+            margin-bottom: 4px;
+        }
+
+        .sub-title {
+            font-family: 'Great Vibes', cursive;
+            color: #ff758c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Auto Typing Text Container */
+        .typewriter-box {
+            min-height: 75px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-text {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Action Button */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: linear-gradient(45deg, #ff758c, #7928ca);
+            color: #fff;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(255, 117, 140, 0.8);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
-
-
 <body>
 
+    <div class="particle-container" id="particles"></div>
 
-<!-- =========================
-     🎁 SPECIAL GIFT
-========================= -->
-
-<section class="gift-section">
-
-
-    <div class="gift-heading">
-
-        <span>
-            ✦ A SPECIAL GIFT FOR YOU ✦
-        </span>
-
-        <h1>
-            A Gift For Mithlesh Ma'am 🎁
-        </h1>
-
-        <p>
-            Click the gift to reveal your surprise
-        </p>
-
-    </div>
-
-
-    <!-- GIFT -->
-
-    <div
-        class="gift-wrapper"
-        id="giftWrapper"
-        onclick="openGift()"
-    >
-
-        <div class="gift">
-
-
-            <div class="gift-lid">
-
-                <div class="bow left"></div>
-
-                <div class="bow right"></div>
-
-            </div>
-
-
-            <div class="gift-box">
-
-                <div class="vertical-ribbon"></div>
-
-                <div class="horizontal-ribbon"></div>
-
-            </div>
-
-
+    <div class="master-card" id="card">
+        <div class="crown-box">
+            <div class="ring-aura"></div>
+            <div class="monogram">M</div>
         </div>
 
+        <div class="badge-tag">👑 MASTER IN ENGLISH</div>
+        <h1>Mithlesh Ma'am</h1>
+        <div class="sub-title">An Exceptional Educator & Guide</div>
 
-        <div class="click-text">
-
-            ✨ Click Me ✨
-
+        <div class="typewriter-box">
+            <p class="quote-text" id="typedText"></p>
         </div>
 
-
-    </div>
-
-
-
-    <!-- =========================
-         💌 CARD
-    ========================= -->
-
-    <div
-        class="new-card"
-        id="newCard"
-    >
-
-
-        <div class="card-glow"></div>
-
-
-        <div class="card-content">
-
-
-            <div class="card-top">
-
-                <span>
-                    ✦ A SPECIAL MESSAGE ✦
-                </span>
-
-            </div>
-
-
-            <div class="flower">
-
-                🌷
-
-            </div>
-
-
-            <h2>
-
-                Dear Mithlesh Ma'am
-
-            </h2>
-
-
-            <div class="line"></div>
-
-
-            <p class="main-message">
-
-                A teacher's influence is not measured only
-                by the lessons taught in a classroom,
-                but by the confidence and inspiration
-                given to every student.
-
-            </p>
-
-
-            <p>
-
-                Thank you for your guidance, patience
-                and for making learning a beautiful journey.
-
-            </p>
-
-
-            <div class="signature">
-
-                With Respect & Gratitude
-
-                <strong>
-                    ❤️
-                </strong>
-
-            </div>
-
-
-            <div class="card-bottom">
-
-                Made specially for
-                <b>Mithlesh Ma'am</b>
-
-            </div>
-
-
+        <div class="btn-group">
+            <button class="btn" onclick="triggerCelebration()">Celebrate ✨</button>
         </div>
-
-
     </div>
 
-
-</section>
-
-
-
-<!-- =========================
-     FINAL
-========================= -->
-
-<section class="final">
-
-    <h2>
-        Thank You, Mithlesh Ma'am
-    </h2>
-
-    <p>
-        For teaching • inspiring • guiding • believing
-    </p>
-
-    <br>
-
-    <p>
-
-        Made with
-        <span class="heart">❤️</span>
-        & respect
-
-    </p>
-
-</section>
-
-
-
-<footer>
-
-    © 2026 | A Digital Gift For Mithlesh Ma'am
-
-</footer>
-
-
-
-<script>
-
-
-/* =========================
-   🎁 OPEN GIFT
-========================= */
-
-function openGift(){
-
-    const wrapper =
-        document.getElementById(
-            "giftWrapper"
-        );
-
-    const card =
-        document.getElementById(
-            "newCard"
-        );
-
-
-    if(
-        wrapper.classList.contains(
-            "open"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    /* Open */
-
-    wrapper.classList.add(
-        "open"
-    );
-
-
-    /* Change text */
-
-    const text =
-        wrapper.querySelector(
-            ".click-text"
-        );
-
-    text.innerHTML =
-        "✨ Your Special Message ✨";
-
-
-    /* Show card */
-
-    setTimeout(function(){
-
-        card.classList.add(
-            "show"
-        );
-
-
-        setTimeout(function(){
-
-            card.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"center"
-
-            });
-
-        },250);
-
-
-    },650);
-
-}
-
-
-
-/* =========================
-   🌸❤️ CONTINUOUS FLOW
-========================= */
-
-const symbols = [
-
-    "🌸",
-    "🌷",
-    "🌺",
-    "🌹",
-    "🌼",
-    "❤️",
-    "💖",
-    "💕",
-    "💗",
-    "💓"
-
-];
-
-
-function createFloating(){
-
-    const element =
-        document.createElement(
-            "div"
-        );
-
-
-    element.className =
-        "floating";
-
-
-    element.innerHTML =
-        symbols[
-            Math.floor(
-                Math.random() *
-                symbols.length
-            )
-        ];
-
-
-    /* Random position */
-
-    element.style.left =
-        Math.random() * 100 + "vw";
-
-
-    /* Random size */
-
-    element.style.fontSize =
-        (15 + Math.random() * 22)
-        + "px";
-
-
-    /* Random speed */
-
-    element.style.animationDuration =
-        (5 + Math.random() * 6)
-        + "s";
-
-
-    /* Random rotation */
-
-    element.style.filter =
-        "drop-shadow(0 0 5px rgba(255,255,255,.15))";
-
-
-    document.body.appendChild(
-        element
-    );
-
-
-    setTimeout(function(){
-
-        element.remove();
-
-    },12000);
-
-}
-
-
-/* Continuous flow */
-
-setInterval(
-    createFloating,
-    450
-);
-
-
-/* Initial flowers/hearts */
-
-for(
-    let i = 0;
-    i < 15;
-    i++
-){
-
-    setTimeout(
-        createFloating,
-        i * 220
-    );
-
-}
-
-</script>
-
-
+    <!-- Canvas Confetti Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // 3D Tilt Effect
+        const card = document.getElementById('card');
+        document.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Falling Sakura Particles
+        const pContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            let p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = Math.random() * 8 + 6 + 'px';
+            p.style.height = Math.random() * 12 + 8 + 'px';
+            p.style.animationDuration = Math.random() * 4 + 4 + 's';
+            p.style.animationDelay = Math.random() * 4 + 's';
+            pContainer.appendChild(p);
+        }
+
+        // Live Typewriter Effect
+        const message = '"A truly great teacher inspires hope, ignites the imagination, and instills a lifelong love of learning."';
+        let index = 0;
+        const textElement = document.getElementById('typedText');
+
+        function typeWriter() {
+            if (index < message.length) {
+                textElement.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeWriter, 35);
+            }
+        }
+        window.onload = typeWriter;
+
+        // Confetti Celebration Trigger
+        function triggerCelebration() {
+            var count = 200;
+            var defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+    </script>
 </body>
 </html>
