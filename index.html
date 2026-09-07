@@ -1,1246 +1,551 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mithlesh Ma'am | Teacher Appreciation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Mithlesh Ma'am 📸</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
-
-<style>
-
-/* ================================
-   RESET
-================================ */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    min-height:100%;
-}
-
-body{
-    background:#030303;
-    color:#fff;
-    font-family:"Montserrat",sans-serif;
-    overflow-x:hidden;
-}
-
-/* ================================
-   BACKGROUND
-================================ */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-        radial-gradient(circle at 15% 20%,rgba(183,138,74,.12),transparent 25%),
-        radial-gradient(circle at 85% 70%,rgba(255,170,170,.08),transparent 25%);
-    z-index:-3;
-}
-
-/* ================================
-   HEART + FLOWER RAIN
-================================ */
-
-#rain-container{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:20;
-}
-
-.rain-item{
-    position:absolute;
-    top:-60px;
-    user-select:none;
-    pointer-events:none;
-
-    font-family:"Times New Roman",serif;
-
-    animation-name:rainFall;
-    animation-timing-function:linear;
-    animation-fill-mode:forwards;
-
-    will-change:transform,opacity;
-
-    filter:
-        drop-shadow(0 0 5px rgba(255,190,170,.35))
-        drop-shadow(0 0 10px rgba(255,215,150,.15));
-}
-
-.rain-item.heart{
-    color:#ffaaa8;
-}
-
-.rain-item.flower{
-    color:#e5bd78;
-}
-
-.rain-item.soft{
-    color:#f3c9c4;
-}
-
-.rain-item.gold{
-    color:#f0c878;
-}
-
-@keyframes rainFall{
-
-    0%{
-        transform:
-            translate3d(0,-70px,0)
-            rotate(0deg)
-            scale(.7);
-
-        opacity:0;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    8%{
-        opacity:.8;
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
     }
 
-    25%{
-        transform:
-            translate3d(40px,25vh,0)
-            rotate(80deg)
-            scale(1);
+    .card {
+      width: 100%;
+      max-width: 450px;
+      background: white;
+      padding: 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
     }
 
-    50%{
-        transform:
-            translate3d(-35px,50vh,0)
-            rotate(170deg)
-            scale(.9);
+    h1 {
+      color: #ff477e;
+      margin-bottom: 10px;
     }
 
-    75%{
-        transform:
-            translate3d(45px,75vh,0)
-            rotate(260deg)
-            scale(1);
+    p {
+      color: #666;
+      margin-bottom: 15px;
     }
 
-    100%{
-        transform:
-            translate3d(-25px,115vh,0)
-            rotate(360deg)
-            scale(.75);
-
-        opacity:0;
-    }
-}
-
-/* ================================
-   MAIN
-================================ */
-
-.wrapper{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:40px 20px;
-}
-
-/* ================================
-   CARD
-================================ */
-
-.card{
-    position:relative;
-
-    width:min(1100px,95vw);
-    min-height:780px;
-
-    padding:65px 70px;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(190,145,75,.10),
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            #111,
-            #050505 50%,
-            #0c0a08
-        );
-
-    border:1px solid #b38a4a;
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.03),
-        0 30px 100px rgba(0,0,0,.8),
-        inset 0 0 100px rgba(255,190,100,.025);
-}
-
-/* Inner border */
-
-.card::before{
-    content:"";
-    position:absolute;
-    inset:14px;
-
-    border:1px solid rgba(206,164,95,.32);
-
-    pointer-events:none;
-}
-
-/* ================================
-   CORNER DECORATIONS
-================================ */
-
-.corner{
-    position:absolute;
-    width:70px;
-    height:70px;
-
-    border-color:#cba05c;
-    border-style:solid;
-
-    opacity:.75;
-}
-
-.corner.tl{
-    top:25px;
-    left:25px;
-
-    border-width:1px 0 0 1px;
-}
-
-.corner.tr{
-    top:25px;
-    right:25px;
-
-    border-width:1px 1px 0 0;
-}
-
-.corner.bl{
-    bottom:25px;
-    left:25px;
-
-    border-width:0 0 1px 1px;
-}
-
-.corner.br{
-    bottom:25px;
-    right:25px;
-
-    border-width:0 1px 1px 0;
-}
-
-/* ================================
-   GOLD DUST
-================================ */
-
-.dust{
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
-    border-radius:50%;
-
-    background:#d8b36b;
-
-    box-shadow:
-        0 0 8px #d8b36b;
-
-    animation:dustFloat 5s ease-in-out infinite;
-}
-
-.d1{left:8%;top:18%;}
-.d2{left:14%;top:76%;animation-delay:1s;}
-.d3{right:12%;top:24%;animation-delay:2s;}
-.d4{right:20%;top:72%;animation-delay:3s;}
-.d5{left:48%;top:8%;animation-delay:1.5s;}
-.d6{right:43%;bottom:10%;animation-delay:2.5s;}
-
-@keyframes dustFloat{
-
-    0%,100%{
-        transform:translateY(0);
-        opacity:.25;
+    .camera-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #111;
+      margin-top: 15px;
     }
 
-    50%{
-        transform:translateY(-15px);
-        opacity:1;
-    }
-}
-
-/* ================================
-   TOP ICON
-================================ */
-
-.top-icon{
-    width:65px;
-    height:65px;
-
-    margin:0 auto 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid #b58c4d;
-    border-radius:50%;
-
-    color:#e5bd78;
-
-    font-size:28px;
-
-    box-shadow:
-        0 0 25px rgba(210,165,90,.12),
-        inset 0 0 20px rgba(210,165,90,.05);
-}
-
-/* ================================
-   EYEBROW
-================================ */
-
-.eyebrow{
-    text-align:center;
-
-    color:#d6b474;
-
-    font-size:11px;
-
-    letter-spacing:5px;
-
-    font-weight:500;
-
-    margin-bottom:20px;
-}
-
-/* ================================
-   DIVIDER
-================================ */
-
-.divider{
-    width:80px;
-    height:1px;
-
-    margin:0 auto 28px;
-
-    background:#b38a4a;
-
-    box-shadow:0 0 10px rgba(190,145,75,.5);
-}
-
-/* ================================
-   MAIN NAME
-================================ */
-
-.name{
-    text-align:center;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:clamp(75px,11vw,145px);
-
-    line-height:.75;
-
-    font-weight:500;
-
-    letter-spacing:-4px;
-
-    color:#d6b16d;
-
-    text-shadow:
-        0 0 25px rgba(210,170,100,.12),
-        0 3px 20px rgba(0,0,0,.8);
-}
-
-.maam{
-    text-align:center;
-
-    font-family:"Parisienne",cursive;
-
-    font-size:clamp(50px,7vw,85px);
-
-    color:#f0b8b4;
-
-    margin-top:12px;
-
-    transform:rotate(-3deg);
-
-    text-shadow:
-        0 0 20px rgba(240,184,180,.12);
-}
-
-/* ================================
-   THANK YOU
-================================ */
-
-.thank-title{
-    text-align:center;
-
-    margin-top:25px;
-
-    font-size:15px;
-
-    letter-spacing:7px;
-
-    color:#e5bd78;
-
-    font-weight:500;
-}
-
-/* ================================
-   MESSAGE
-================================ */
-
-.message{
-    max-width:700px;
-
-    margin:28px auto 0;
-
-    text-align:center;
-
-    color:#c7c2ba;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:22px;
-
-    line-height:1.6;
-
-    font-weight:400;
-}
-
-/* ================================
-   FEATURES
-================================ */
-
-.features{
-    max-width:850px;
-
-    margin:48px auto 0;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    border-top:1px solid rgba(210,170,100,.2);
-
-    border-bottom:1px solid rgba(210,170,100,.2);
-}
-
-.feature{
-    padding:23px 10px;
-
-    text-align:center;
-
-    position:relative;
-}
-
-.feature:not(:last-child)::after{
-    content:"";
-
-    position:absolute;
-
-    top:22px;
-    right:0;
-
-    width:1px;
-    height:35px;
-
-    background:rgba(210,170,100,.22);
-}
-
-.feature-icon{
-    font-size:22px;
-
-    margin-bottom:9px;
-
-    color:#d8b36b;
-}
-
-.feature-title{
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    color:#aaa39a;
-
-    font-weight:500;
-}
-
-/* ================================
-   QUOTE
-================================ */
-
-.bottom-quote{
-    text-align:center;
-
-    margin:38px auto 0;
-
-    max-width:650px;
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:26px;
-
-    font-style:italic;
-
-    color:#ddd2c0;
-}
-
-.bottom-quote::before{
-    content:"“";
-
-    color:#c9a25f;
-
-    font-size:50px;
-
-    vertical-align:-20px;
-
-    margin-right:5px;
-}
-
-/* ================================
-   APPRECIATION BAR
-================================ */
-
-.appreciation{
-    display:table;
-
-    margin:35px auto 0;
-
-    padding:13px 28px;
-
-    background:#e7b9b4;
-
-    color:#1b1110;
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    font-weight:600;
-
-    transform:rotate(-1deg);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.35);
-}
-
-/* ================================
-   DECORATIVE BOOKS
-================================ */
-
-.books{
-    position:absolute;
-
-    left:55px;
-    bottom:50px;
-
-    width:120px;
-    height:80px;
-
-    transform:rotate(-6deg);
-
-    opacity:.7;
-}
-
-.book{
-    position:absolute;
-
-    left:0;
-
-    width:100px;
-    height:16px;
-
-    border:1px solid #9e7842;
-
-    background:#15120f;
-
-    box-shadow:
-        inset 0 0 10px rgba(210,170,100,.05);
-}
-
-.book:nth-child(1){
-    bottom:0;
-}
-
-.book:nth-child(2){
-    bottom:17px;
-    left:8px;
-    transform:rotate(4deg);
-}
-
-.book:nth-child(3){
-    bottom:34px;
-    left:3px;
-    transform:rotate(-2deg);
-}
-
-/* ================================
-   PEN CUP
-================================ */
-
-.pen-cup{
-    position:absolute;
-
-    right:55px;
-    bottom:50px;
-
-    width:48px;
-    height:58px;
-
-    border:1px solid #9d7845;
-
-    border-radius:3px 3px 10px 10px;
-
-    background:linear-gradient(
-        90deg,
-        #111,
-        #272019,
-        #111
-    );
-
-    opacity:.75;
-}
-
-.pen{
-    position:absolute;
-
-    bottom:45px;
-
-    width:3px;
-    height:60px;
-
-    background:#cba05c;
-
-    transform:rotate(10deg);
-}
-
-.pen:nth-child(1){
-    left:12px;
-}
-
-.pen:nth-child(2){
-    left:25px;
-    height:67px;
-    transform:rotate(-8deg);
-}
-
-.pen:nth-child(3){
-    left:35px;
-    height:55px;
-    transform:rotate(16deg);
-}
-
-/* ================================
-   LAMP
-================================ */
-
-.lamp{
-    position:absolute;
-
-    top:95px;
-    right:70px;
-
-    width:80px;
-    height:100px;
-
-    opacity:.4;
-}
-
-.lamp-shade{
-    position:absolute;
-
-    top:0;
-    left:12px;
-
-    width:55px;
-    height:32px;
-
-    border:1px solid #b28a4b;
-
-    border-radius:50% 50% 8px 8px;
-
-    background:#18130d;
-}
-
-.lamp-pole{
-    position:absolute;
-
-    top:30px;
-    left:39px;
-
-    width:2px;
-    height:52px;
-
-    background:#a17b43;
-}
-
-.lamp-base{
-    position:absolute;
-
-    bottom:0;
-    left:20px;
-
-    width:40px;
-    height:4px;
-
-    background:#a17b43;
-}
-
-/* ================================
-   NOTE
-================================ */
-
-.note{
-    position:absolute;
-
-    left:50px;
-    top:95px;
-
-    width:115px;
-    height:80px;
-
-    padding:13px;
-
-    background:#18140f;
-
-    border:1px solid rgba(210,170,100,.35);
-
-    transform:rotate(-7deg);
-
-    opacity:.65;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.4);
-}
-
-.note-line{
-    height:1px;
-
-    background:#987847;
-
-    margin:8px 0;
-
-    opacity:.6;
-}
-
-.note-title{
-    font-size:8px;
-
-    letter-spacing:2px;
-
-    color:#d5b16e;
-}
-
-/* ================================
-   VASE
-================================ */
-
-.vase{
-    position:absolute;
-
-    right:170px;
-    bottom:48px;
-
-    width:48px;
-    height:62px;
-
-    border:1px solid #987544;
-
-    border-radius:5px 5px 20px 20px;
-
-    background:rgba(30,25,18,.7);
-
-    opacity:.55;
-}
-
-.flower-left{
-    position:absolute;
-
-    left:145px;
-    bottom:105px;
-
-    font-size:75px;
-
-    color:#bd9552;
-
-    opacity:.18;
-
-    transform:rotate(-12deg);
-}
-
-/* ================================
-   SPARKLES
-================================ */
-
-.sparkle{
-    position:absolute;
-
-    color:#e5bd78;
-
-    font-size:16px;
-
-    animation:sparkle 3s ease-in-out infinite;
-}
-
-.s1{
-    left:22%;
-    top:27%;
-}
-
-.s2{
-    right:24%;
-    top:35%;
-
-    animation-delay:1s;
-}
-
-.s3{
-    left:27%;
-    bottom:26%;
-
-    animation-delay:2s;
-}
-
-.s4{
-    right:28%;
-    bottom:20%;
-
-    animation-delay:1.5s;
-}
-
-@keyframes sparkle{
-
-    0%,100%{
-        opacity:.15;
-        transform:scale(.7) rotate(0);
+    video,
+    #photo {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
     }
 
-    50%{
-        opacity:1;
-        transform:scale(1.3) rotate(90deg);
-    }
-}
-
-/* ================================
-   MOBILE
-================================ */
-
-@media(max-width:750px){
-
-    .wrapper{
-        padding:20px 10px;
+    #photo {
+      display: none;
+      margin-top: 15px;
     }
 
-    .card{
-        min-height:700px;
-
-        padding:50px 25px;
+    #countdown {
+      min-height: 55px;
+      font-size: 45px;
+      font-weight: bold;
+      color: #ff477e;
+      margin: 15px 0;
     }
 
-    .card::before{
-        inset:9px;
+    button {
+      border: none;
+      background: #ff477e;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px 4px;
+      transition: .2s;
     }
 
-    .corner{
-        width:45px;
-        height:45px;
+    button:hover {
+      background: #e9366b;
+      transform: scale(1.03);
     }
 
-    .corner.tl,
-    .corner.tr{
-        top:18px;
+    button:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    .corner.bl,
-    .corner.br{
-        bottom:18px;
+    #saveBtn {
+      display: none;
+      background: #4CAF50;
     }
 
-    .corner.tl,
-    .corner.bl{
-        left:18px;
+    #saveBtn:hover {
+      background: #3d963f;
     }
 
-    .corner.tr,
-    .corner.br{
-        right:18px;
+    #restartBtn {
+      display: none;
+      background: #555;
     }
 
-    .eyebrow{
-        font-size:8px;
-        letter-spacing:3px;
+    canvas {
+      display: none;
     }
 
-    .name{
-        font-size:72px;
-        letter-spacing:-2px;
+    .status {
+      font-size: 14px;
+      color: #888;
+      margin-top: 8px;
     }
-
-    .maam{
-        font-size:58px;
-    }
-
-    .thank-title{
-        font-size:11px;
-        letter-spacing:4px;
-    }
-
-    .message{
-        font-size:19px;
-        padding:0 10px;
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .feature:nth-child(2)::after{
-        display:none;
-    }
-
-    .feature:nth-child(1),
-    .feature:nth-child(2){
-        border-bottom:1px solid rgba(210,170,100,.2);
-    }
-
-    .bottom-quote{
-        font-size:22px;
-    }
-
-    .books,
-    .pen-cup,
-    .lamp,
-    .note,
-    .vase,
-    .flower-left{
-        opacity:.18;
-    }
-
-    .appreciation{
-        font-size:8px;
-        letter-spacing:2px;
-        text-align:center;
-    }
-}
-
-/* ================================
-   REDUCE MOTION
-================================ */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-    }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- =================================
-     HEART + FLOWER RAIN
-================================= -->
+  <div class="card">
 
-<div id="rain-container"></div>
+    <h1>🌸 Mithlesh Ma'am 🌸</h1>
 
+    <p>Camera ready 📸</p>
 
-<div class="wrapper">
-
-<div class="card">
-
-    <!-- CORNERS -->
-    <div class="corner tl"></div>
-    <div class="corner tr"></div>
-    <div class="corner bl"></div>
-    <div class="corner br"></div>
-
-    <!-- GOLD DUST -->
-    <span class="dust d1"></span>
-    <span class="dust d2"></span>
-    <span class="dust d3"></span>
-    <span class="dust d4"></span>
-    <span class="dust d5"></span>
-    <span class="dust d6"></span>
-
-    <!-- DECORATIVE -->
-    <div class="lamp">
-        <div class="lamp-shade"></div>
-        <div class="lamp-pole"></div>
-        <div class="lamp-base"></div>
+    <div class="camera-box">
+      <video
+        id="camera"
+        autoplay
+        playsinline
+        muted>
+      </video>
     </div>
 
-    <div class="note">
-        <div class="note-title">THANK YOU</div>
-        <div class="note-line"></div>
-        <div class="note-line"></div>
-        <div class="note-line"></div>
-        <div class="note-line"></div>
+    <div id="countdown"></div>
+
+    <button id="takeBtn" type="button">
+      📸 Take Photo
+    </button>
+
+    <button id="saveBtn" type="button">
+      💾 Save Photo
+    </button>
+
+    <button id="restartBtn" type="button">
+      🔄 Restart Camera
+    </button>
+
+    <canvas id="canvas"></canvas>
+
+    <img id="photo" alt="Captured Photo">
+
+    <div class="status" id="status">
+      Camera starting...
     </div>
 
-    <div class="books">
-        <div class="book"></div>
-        <div class="book"></div>
-        <div class="book"></div>
-    </div>
+  </div>
 
-    <div class="pen-cup">
-        <div class="pen"></div>
-        <div class="pen"></div>
-        <div class="pen"></div>
-    </div>
+  <script>
+    const video = document.getElementById("camera");
+    const canvas = document.getElementById("canvas");
+    const photo = document.getElementById("photo");
+    const countdown = document.getElementById("countdown");
 
-    <div class="vase"></div>
+    const takeBtn = document.getElementById("takeBtn");
+    const saveBtn = document.getElementById("saveBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const status = document.getElementById("status");
 
-    <div class="flower-left">✿</div>
+    let stream = null;
+    let isCounting = false;
+    let countdownTimer = null;
+    let lastPhotoURL = null;
 
-    <!-- SPARKLES -->
-    <span class="sparkle s1">✦</span>
-    <span class="sparkle s2">✧</span>
-    <span class="sparkle s3">✦</span>
-    <span class="sparkle s4">✧</span>
 
+    // ------------------------------------
+    // START CAMERA
+    // ------------------------------------
+    async function startCamera() {
 
-    <!-- MAIN CONTENT -->
+      // Stop old stream safely
+      stopCamera();
 
-    <div class="top-icon">
-        ♡
-    </div>
+      status.innerText = "Camera starting...";
+      takeBtn.disabled = true;
+      restartBtn.style.display = "none";
 
-    <div class="eyebrow">
-        TO AN AMAZING TEACHER
-    </div>
+      try {
 
-    <div class="divider"></div>
+        if (!navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia) {
 
-    <div class="name">
-        Mithlesh
-    </div>
+          throw new Error("Camera API not supported");
+        }
 
-    <div class="maam">
-        Ma'am
-    </div>
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: "user",
+            width: {
+              ideal: 1280
+            },
+            height: {
+              ideal: 720
+            }
+          },
+          audio: false
+        });
 
-    <div class="thank-title">
-        THANK YOU
-    </div>
+        video.srcObject = stream;
 
-    <p class="message">
-        For teaching with patience, guiding with kindness,
-        and inspiring us every day to become our better selves.
-    </p>
+        // IMPORTANT:
+        // Wait until video actually has frames.
+        await waitForVideo();
 
+        status.innerText = "Camera ready 📸";
+        takeBtn.disabled = false;
 
-    <!-- FEATURES -->
+      } catch (error) {
 
-    <div class="features">
+        console.error("Camera Error:", error);
 
-        <div class="feature">
-            <div class="feature-icon">📖</div>
-            <div class="feature-title">
-                LESSONS
-            </div>
-        </div>
+        status.innerText =
+          "Camera permission allow karo bhai 😅";
 
-        <div class="feature">
-            <div class="feature-icon">✦</div>
-            <div class="feature-title">
-                GUIDANCE
-            </div>
-        </div>
+        restartBtn.style.display = "inline-block";
 
-        <div class="feature">
-            <div class="feature-icon">♡</div>
-            <div class="feature-title">
-                ENCOURAGEMENT
-            </div>
-        </div>
+        alert(
+          "Camera access nahi mil raha.\n\n" +
+          "Browser me Camera Permission → Allow karo."
+        );
+      }
+    }
 
-        <div class="feature">
-            <div class="feature-icon">❀</div>
-            <div class="feature-title">
-                MEMORIES
-            </div>
-        </div>
 
-    </div>
+    // ------------------------------------
+    // WAIT FOR VIDEO TO BE READY
+    // ------------------------------------
+    function waitForVideo() {
 
+      return new Promise((resolve, reject) => {
 
-    <!-- QUOTE -->
+        const timeout = setTimeout(() => {
+          reject(new Error("Camera timeout"));
+        }, 10000);
 
-    <div class="bottom-quote">
-        You don't just teach a subject,
-        you teach life.
-    </div>
+        function checkVideo() {
 
+          if (
+            video.readyState >= 2 &&
+            video.videoWidth > 0 &&
+            video.videoHeight > 0
+          ) {
 
-    <!-- APPRECIATION -->
+            clearTimeout(timeout);
 
-    <div class="appreciation">
-        WE APPRECIATE YOU TODAY AND ALWAYS
-    </div>
+            // Make sure video is actually playing
+            video.play()
+              .then(resolve)
+              .catch(resolve);
 
-</div>
+          } else {
 
-</div>
+            requestAnimationFrame(checkVideo);
+          }
+        }
 
+        checkVideo();
+      });
+    }
 
-<script>
 
-/* =========================================
-   HEAVY HEART + FLOWER RAIN
-========================================= */
+    // ------------------------------------
+    // TAKE PHOTO
+    // ------------------------------------
+    function takePhoto() {
 
-const rainContainer =
-    document.getElementById("rain-container");
+      // Prevent double clicking
+      if (isCounting) {
+        return;
+      }
 
+      // Camera must be ready
+      if (
+        !stream ||
+        !video.srcObject ||
+        video.readyState < 2 ||
+        video.videoWidth === 0 ||
+        video.videoHeight === 0
+      ) {
 
-const symbols = [
+        alert("Camera abhi ready nahi hai bhai 😅");
+        return;
+      }
 
-    {icon:"♥", type:"heart"},
-    {icon:"♡", type:"soft"},
+      isCounting = true;
+      takeBtn.disabled = true;
 
-    {icon:"✿", type:"flower"},
-    {icon:"❀", type:"flower"},
-    {icon:"❁", type:"gold"},
-    {icon:"✽", type:"flower"},
-    {icon:"❃", type:"gold"},
+      let number = 3;
 
-    {icon:"♥", type:"heart"},
-    {icon:"♡", type:"soft"},
+      countdown.innerText = number;
 
-    {icon:"✿", type:"flower"},
-    {icon:"❀", type:"flower"},
+      countdownTimer = setInterval(() => {
 
-    {icon:"✦", type:"gold"},
-    {icon:"✧", type:"soft"}
+        number--;
 
-];
+        if (number > 0) {
+          countdown.innerText = number;
+        }
 
+        if (number === 0) {
 
-function createRain(){
+          clearInterval(countdownTimer);
+          countdownTimer = null;
 
-    const item =
-        document.createElement("span");
+          countdown.innerText = "📸";
 
+          // Small delay ensures latest video frame is available
+          setTimeout(() => {
 
-    const selected =
-        symbols[
-            Math.floor(
-                Math.random() * symbols.length
-            )
-        ];
+            capturePhoto();
 
+          }, 250);
+        }
 
-    item.className =
-        "rain-item " + selected.type;
+      }, 1000);
+    }
 
 
-    item.textContent =
-        selected.icon;
+    // ------------------------------------
+    // CAPTURE PHOTO
+    // ------------------------------------
+    function capturePhoto() {
 
+      try {
 
-    /* Random horizontal position */
+        // Re-check video before capturing
+        if (
+          video.readyState < 2 ||
+          video.videoWidth === 0 ||
+          video.videoHeight === 0
+        ) {
 
-    item.style.left =
-        Math.random() * 100 + "vw";
+          throw new Error("Video frame not ready");
+        }
 
+        const width = video.videoWidth;
+        const height = video.videoHeight;
 
-    /* Random size */
+        canvas.width = width;
+        canvas.height = height;
 
-    const size =
-        10 + Math.random() * 25;
+        const ctx = canvas.getContext("2d", {
+          alpha: false
+        });
 
-    item.style.fontSize =
-        size + "px";
+        ctx.clearRect(0, 0, width, height);
 
+        /*
+          IMPORTANT FIX:
 
-    /* Random falling speed */
+          Do NOT stop the camera after taking a photo.
 
-    const duration =
-        4 + Math.random() * 7;
+          The old code did:
+          stream.getTracks().forEach(track => track.stop());
 
-    item.style.animationDuration =
-        duration + "s";
+          That caused the second capture to become black.
+        */
 
+        ctx.drawImage(
+          video,
+          0,
+          0,
+          width,
+          height
+        );
 
-    /* Random starting delay */
+        // Generate fresh image
+        const imageData = canvas.toDataURL(
+          "image/jpeg",
+          0.92
+        );
 
-    item.style.animationDelay =
-        Math.random() * 1.5 + "s";
+        // Remove previous object URL if any
+        if (lastPhotoURL) {
+          URL.revokeObjectURL(lastPhotoURL);
+          lastPhotoURL = null;
+        }
 
+        photo.src = imageData;
+        photo.style.display = "block";
 
-    /* Random transparency */
+        saveBtn.style.display = "inline-block";
 
-    item.style.opacity =
-        0.25 + Math.random() * 0.7;
+        countdown.innerText = "Photo clicked ❤️";
 
+        status.innerText =
+          "Photo ready! Dobara bhi click kar sakte ho 📸";
 
-    /* Add */
+      } catch (error) {
 
-    rainContainer.appendChild(item);
+        console.error("Capture Error:", error);
 
+        countdown.innerText = "❌";
 
-    /* Remove after animation */
+        status.innerText =
+          "Photo capture nahi ho payi. Camera restart karo.";
 
-    setTimeout(() => {
+      } finally {
 
-        item.remove();
+        isCounting = false;
+        takeBtn.disabled = false;
+      }
+    }
 
-    }, (duration + 3) * 1000);
 
-}
+    // ------------------------------------
+    // SAVE PHOTO
+    // ------------------------------------
+    function savePhoto() {
 
+      if (!canvas.width || !canvas.height) {
 
-/* =========================================
-   CONTINUOUS RAIN
-========================================= */
+        alert("Pehle photo click karo bhai 📸");
+        return;
+      }
 
-/*
-   120ms = heavy rain
-*/
+      canvas.toBlob(
+        function(blob) {
 
-setInterval(createRain,120);
+          if (!blob) {
+            alert("Photo save nahi ho payi.");
+            return;
+          }
 
+          const url = URL.createObjectURL(blob);
 
-/* =========================================
-   INITIAL RAIN
-========================================= */
+          const link = document.createElement("a");
 
-for(let i = 0; i < 90; i++){
+          link.href = url;
+          link.download =
+            "Mithlesh-Maam-" +
+            Date.now() +
+            ".jpg";
 
-    setTimeout(
-        createRain,
-        i * 60
+          document.body.appendChild(link);
+
+          link.click();
+
+          link.remove();
+
+          setTimeout(() => {
+            URL.revokeObjectURL(url);
+          }, 1000);
+
+        },
+        "image/jpeg",
+        0.92
+      );
+    }
+
+
+    // ------------------------------------
+    // STOP CAMERA
+    // ------------------------------------
+    function stopCamera() {
+
+      if (stream) {
+
+        stream.getTracks().forEach(track => {
+          try {
+            track.stop();
+          } catch (e) {
+            console.warn(e);
+          }
+        });
+
+        stream = null;
+      }
+
+      video.srcObject = null;
+    }
+
+
+    // ------------------------------------
+    // RESTART CAMERA
+    // ------------------------------------
+    restartBtn.addEventListener("click", () => {
+
+      countdown.innerText = "";
+
+      photo.style.display = "none";
+
+      saveBtn.style.display = "none";
+
+      startCamera();
+    });
+
+
+    // ------------------------------------
+    // BUTTON EVENTS
+    // ------------------------------------
+    takeBtn.addEventListener(
+      "click",
+      takePhoto
     );
 
-}
+    saveBtn.addEventListener(
+      "click",
+      savePhoto
+    );
 
-</script>
+
+    // ------------------------------------
+    // PAGE LOAD
+    // ------------------------------------
+    window.addEventListener(
+      "load",
+      startCamera
+    );
+
+
+    // ------------------------------------
+    // CLEANUP
+    // ------------------------------------
+    window.addEventListener(
+      "beforeunload",
+      () => {
+
+        if (countdownTimer) {
+          clearInterval(countdownTimer);
+        }
+
+        stopCamera();
+
+        if (lastPhotoURL) {
+          URL.revokeObjectURL(lastPhotoURL);
+        }
+      }
+    );
+
+  </script>
 
 </body>
 </html>
