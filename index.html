@@ -1,551 +1,938 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mithlesh Ma'am 📸</title>
+<title>For My Best Teacher 🌸</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f5f2,
+            #ebe5df,
+            #f9f7f4,
+            #e9e1dc
+        );
+
+    background-size: 400% 400%;
+    animation: backgroundMove 15s ease infinite;
+
+    position: relative;
+}
+
+/* =========================
+   RAIN
+========================= */
+
+.rain {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.drop {
+    position: absolute;
+    top: -40px;
+    width: 1.5px;
+    height: 45px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(125, 64, 71, 0.22)
+    );
+
+    border-radius: 50%;
+    animation: rainFall linear forwards;
+}
+
+@keyframes rainFall {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
     }
 
+    10% {
+        opacity: .8;
+    }
+
+    90% {
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flowers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.flower {
+    position: absolute;
+    font-size: 22px;
+
+    filter:
+        drop-shadow(0 0 7px rgba(255, 150, 190, .7))
+        drop-shadow(0 0 16px rgba(255, 180, 210, .45));
+
+    animation:
+        flowerFloat 6s ease-in-out infinite,
+        flowerGlow 2.5s ease-in-out infinite alternate;
+}
+
+.flower:nth-child(1) {
+    left: 8%;
+    top: 15%;
+    animation-delay: .2s;
+}
+
+.flower:nth-child(2) {
+    right: 9%;
+    top: 20%;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(3) {
+    left: 5%;
+    bottom: 20%;
+    animation-delay: 1.7s;
+}
+
+.flower:nth-child(4) {
+    right: 6%;
+    bottom: 15%;
+    animation-delay: 2.3s;
+}
+
+.flower:nth-child(5) {
+    left: 18%;
+    top: 7%;
+    font-size: 17px;
+    animation-delay: .8s;
+}
+
+.flower:nth-child(6) {
+    right: 18%;
+    bottom: 7%;
+    font-size: 17px;
+    animation-delay: 1.4s;
+}
+
+@keyframes flowerFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(8deg);
+    }
+}
+
+@keyframes flowerGlow {
+    from {
+        opacity: .55;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: 470px;
+
+    padding: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, .9);
+
+    border-radius: 28px;
+
+    /*
+       HUGE 1000px SHADOW
+    */
+
+    box-shadow:
+        0 25px 1000px rgba(125, 64, 71, .18),
+        0 20px 55px rgba(0, 0, 0, .12);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    animation:
+        cardIn .8s cubic-bezier(.22, 1, .36, 1),
+        cardFloat 6s ease-in-out infinite;
+
+    overflow: hidden;
+}
+
+/* subtle flower glow behind card */
+
+.card::before {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    right: -70px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 170, 200, .35),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    pointer-events: none;
+}
+
+.card::after {
+    content: "🌸";
+
+    position: absolute;
+
+    right: 18px;
+    top: 12px;
+
+    font-size: 30px;
+
+    opacity: .45;
+
+    filter:
+        drop-shadow(0 0 10px rgba(255, 130, 180, .8));
+
+    animation: flowerGlow 2s infinite alternate;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 22px;
+
+    animation:
+        fadeUp .7s .15s both;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    font-size: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #7d4047,
+            #9c5a63
+        );
+
+    color: white;
+
+    box-shadow:
+        0 10px 30px rgba(125, 64, 71, .25),
+        0 0 35px rgba(255, 160, 190, .22);
+
+    animation:
+        logoIn .8s cubic-bezier(.22,1,.36,1),
+        logoFloat 4s ease-in-out infinite;
+}
+
+h1 {
+    margin-top: 15px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #2e2e2e;
+}
+
+.subtitle {
+    margin-top: 6px;
+
+    font-size: 13px;
+    color: #888;
+}
+
+/* =========================
+   APPRECIATION
+========================= */
+
+.appreciation {
+    margin-bottom: 18px;
+
+    padding: 17px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 244, 248, .95),
+            rgba(250, 246, 243, .95)
+        );
+
+    border: 1px solid #eadfe1;
+
+    box-shadow:
+        0 8px 25px rgba(125, 64, 71, .06);
+
+    animation: fadeUp .7s .25s both;
+}
+
+.appreciation .line {
+    display: block;
+
+    color: #444;
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.appreciation .special {
+    margin-top: 5px;
+
+    color: #7d4047;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    text-shadow:
+        0 0 12px rgba(255, 160, 190, .35);
+}
+
+.appreciation .reason {
+    margin-top: 8px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-box {
+    background: #faf9f7;
+
+    border: 1px solid #e5e1dc;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    animation: fadeUp .7s .35s both;
+}
+
+.message {
+    color: #343434;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+.highlight {
+    color: #7d4047;
+    font-weight: 600;
+}
+
+.question {
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #e5e1dc;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+    animation: fadeUp .7s .5s both;
+}
+
+button {
+    width: 100%;
+
+    padding: 16px 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.04);
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+.yes {
+    background: #25D366;
+
+    box-shadow:
+        0 8px 22px rgba(37, 211, 102, .22);
+}
+
+.no {
+    background: #7d4047;
+
+    box-shadow:
+        0 8px 22px rgba(125, 64, 71, .22);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 11px;
+
+    color: #999;
+
+    animation: fadeUp .7s .65s both;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+button.loading {
+    pointer-events: none;
+    opacity: .75;
+}
+
+button.loading::after {
+    content: " •••";
+
+    animation: dots 1s infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoIn {
+    from {
+        opacity: 0;
+        transform:
+            scale(.6)
+            rotate(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes dots {
+    0%, 20% {
+        content: " •";
+    }
+
+    50% {
+        content: " •••";
+    }
+
+    80%, 100% {
+        content: " •";
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
     body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+        padding: 14px;
     }
 
     .card {
-      width: 100%;
-      max-width: 450px;
-      background: white;
-      padding: 25px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+        padding: 21px;
+
+        border-radius: 23px;
+
+        box-shadow:
+            0 20px 1000px rgba(125, 64, 71, .17),
+            0 15px 40px rgba(0, 0, 0, .11);
+    }
+
+    .logo {
+        width: 62px;
+        height: 62px;
+
+        font-size: 28px;
     }
 
     h1 {
-      color: #ff477e;
-      margin-bottom: 10px;
+        font-size: 20px;
     }
 
-    p {
-      color: #666;
-      margin-bottom: 15px;
+    .appreciation {
+        padding: 14px;
     }
 
-    .camera-box {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 18px;
-      background: #111;
-      margin-top: 15px;
+    .appreciation .line {
+        font-size: 13px;
     }
 
-    video,
-    #photo {
-      display: block;
-      width: 100%;
-      border-radius: 18px;
+    .appreciation .special {
+        font-size: 14px;
     }
 
-    #photo {
-      display: none;
-      margin-top: 15px;
-    }
-
-    #countdown {
-      min-height: 55px;
-      font-size: 45px;
-      font-weight: bold;
-      color: #ff477e;
-      margin: 15px 0;
+    .message {
+        font-size: 14px;
     }
 
     button {
-      border: none;
-      background: #ff477e;
-      color: white;
-      padding: 14px 22px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 8px 4px;
-      transition: .2s;
+        padding: 15px 12px;
     }
 
-    button:hover {
-      background: #e9366b;
-      transform: scale(1.03);
+    .flower {
+        font-size: 18px;
     }
-
-    button:disabled {
-      opacity: .55;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    #saveBtn {
-      display: none;
-      background: #4CAF50;
-    }
-
-    #saveBtn:hover {
-      background: #3d963f;
-    }
-
-    #restartBtn {
-      display: none;
-      background: #555;
-    }
-
-    canvas {
-      display: none;
-    }
-
-    .status {
-      font-size: 14px;
-      color: #888;
-      margin-top: 8px;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<!-- =========================
+     RAIN LAYER
+========================= -->
 
-    <h1>🌸 Mithlesh Ma'am 🌸</h1>
+<div class="rain" id="rain"></div>
 
-    <p>Camera ready 📸</p>
+<!-- =========================
+     FLOWERS
+========================= -->
 
-    <div class="camera-box">
-      <video
-        id="camera"
-        autoplay
-        playsinline
-        muted>
-      </video>
+<div class="flowers">
+
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌸</div>
+    <div class="flower">✿</div>
+    <div class="flower">🌷</div>
+
+</div>
+
+
+<!-- =========================
+     MAIN CARD
+========================= -->
+
+<div class="card">
+
+    <div class="header">
+
+        <div class="logo">
+            🌸
+        </div>
+
+        <h1>
+            Work Confirmation
+        </h1>
+
+        <div class="subtitle">
+            A small message for my teacher
+        </div>
+
     </div>
 
-    <div id="countdown"></div>
 
-    <button id="takeBtn" type="button">
-      📸 Take Photo
-    </button>
+    <!-- APPRECIATION -->
 
-    <button id="saveBtn" type="button">
-      💾 Save Photo
-    </button>
+    <div class="appreciation">
 
-    <button id="restartBtn" type="button">
-      🔄 Restart Camera
-    </button>
+        <span class="line">
+          Commerce class ka yah sari class ka pata nahi 😅 
+           but Aap muhje achhi lagti ho ❤️
+          
+        </span>
 
-    <canvas id="canvas"></canvas>
+        <span class="line">
+             Because aap hamesha pyaar aur kindness se baat karti ho. 
+        </span>
 
-    <img id="photo" alt="Captured Photo">
+        <span class="special">
+            orrr meri nazar mein aap hi
+            the best teacher in the world ho 🌸👩‍🏫
+        </span>
 
-    <div class="status" id="status">
-      Camera starting...
+        <div class="reason">
+            
+        </div>
+
     </div>
 
-  </div>
 
-  <script>
-    const video = document.getElementById("camera");
-    const canvas = document.getElementById("canvas");
-    const photo = document.getElementById("photo");
-    const countdown = document.getElementById("countdown");
+    <!-- MESSAGE -->
 
-    const takeBtn = document.getElementById("takeBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const restartBtn = document.getElementById("restartBtn");
-    const status = document.getElementById("status");
+    <div class="message-box">
 
-    let stream = null;
-    let isCounting = false;
-    let countdownTimer = null;
-    let lastPhotoURL = null;
+        <div class="message">
+
+            Ma’am, 🙏<br><br>
+
+            The work will not be possible on Monday.
+
+            <span class="highlight">
+                Please check it on Tuesday and get it done. 📅
+                
+            </span>
+
+        </div>
 
 
-    // ------------------------------------
-    // START CAMERA
-    // ------------------------------------
-    async function startCamera() {
+        <div class="question">
+            Please let me know which option works for you. 😊
+        </div>
 
-      // Stop old stream safely
-      stopCamera();
+    </div>
 
-      status.innerText = "Camera starting...";
-      takeBtn.disabled = true;
-      restartBtn.style.display = "none";
 
-      try {
+    <!-- BUTTONS -->
 
-        if (!navigator.mediaDevices ||
-            !navigator.mediaDevices.getUserMedia) {
+    <div class="buttons">
 
-          throw new Error("Camera API not supported");
-        }
+        <button
+            class="yes"
+            id="yesButton"
+            onclick="openWhatsApp('yes')">
 
-        stream = await navigator.mediaDevices.getUserMedia({
-          video: {
-            facingMode: "user",
-            width: {
-              ideal: 1280
-            },
-            height: {
-              ideal: 720
-            }
-          },
-          audio: false
-        });
+            ✅ Yes, please get it done
 
-        video.srcObject = stream;
+        </button>
 
-        // IMPORTANT:
-        // Wait until video actually has frames.
-        await waitForVideo();
 
-        status.innerText = "Camera ready 📸";
-        takeBtn.disabled = false;
+        <button
+            class="no"
+            id="noButton"
+            onclick="openWhatsApp('no')">
 
-      } catch (error) {
+            📅 No, I’ll do it tomorrow
 
-        console.error("Camera Error:", error);
+        </button>
 
-        status.innerText =
-          "Camera permission allow karo bhai 😅";
+    </div>
 
-        restartBtn.style.display = "inline-block";
 
-        alert(
-          "Camera access nahi mil raha.\n\n" +
-          "Browser me Camera Permission → Allow karo."
-        );
-      }
+    <div class="footer">
+        WhatsApp message will be prepared automatically
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   WHATSAPP
+========================= */
+
+const phoneNumber = "917850965904";
+
+function openWhatsApp(option) {
+
+    let message = "";
+
+    const button =
+        option === "yes"
+            ? document.getElementById("yesButton")
+            : document.getElementById("noButton");
+
+    button.classList.add("loading");
+
+
+    if (option === "yes") {
+
+        message =
+`Ma’am 🙏
+
+Yes, please get it done. ✅
+
+Please check it on Tuesday and get the work completed. 📅
+
+Thank you! 😊`;
+
+    }
+
+    else {
+
+        message =
+`Ma’am 🙏
+
+No, I’ll do it tomorrow. 📅
+
+I’ll check it tomorrow and complete the work. 😊
+
+Thank you!`;
+
     }
 
 
-    // ------------------------------------
-    // WAIT FOR VIDEO TO BE READY
-    // ------------------------------------
-    function waitForVideo() {
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(message);
 
-      return new Promise((resolve, reject) => {
 
-        const timeout = setTimeout(() => {
-          reject(new Error("Camera timeout"));
-        }, 10000);
+    window.location.href = whatsappURL;
 
-        function checkVideo() {
+}
 
-          if (
-            video.readyState >= 2 &&
-            video.videoWidth > 0 &&
-            video.videoHeight > 0
-          ) {
 
-            clearTimeout(timeout);
+/* =========================
+   RANDOM RAIN
+========================= */
 
-            // Make sure video is actually playing
-            video.play()
-              .then(resolve)
-              .catch(resolve);
+const rainContainer =
+    document.getElementById("rain");
 
-          } else {
 
-            requestAnimationFrame(checkVideo);
-          }
-        }
+function createRainDrop() {
 
-        checkVideo();
-      });
+    const drop =
+        document.createElement("span");
+
+    drop.className = "drop";
+
+
+    drop.style.left =
+        Math.random() * 100 + "vw";
+
+
+    drop.style.height =
+        (25 + Math.random() * 45) + "px";
+
+
+    drop.style.opacity =
+        (0.2 + Math.random() * 0.5);
+
+
+    const duration =
+        0.6 + Math.random() * 1.2;
+
+
+    drop.style.animationDuration =
+        duration + "s";
+
+
+    rainContainer.appendChild(drop);
+
+
+    setTimeout(() => {
+
+        drop.remove();
+
+    }, duration * 1000 + 200);
+
+}
+
+
+/* Rain continuously appears at random times */
+
+setInterval(() => {
+
+    const amount =
+        Math.floor(Math.random() * 4) + 1;
+
+
+    for (let i = 0; i < amount; i++) {
+
+        createRainDrop();
+
     }
 
+}, 180);
 
-    // ------------------------------------
-    // TAKE PHOTO
-    // ------------------------------------
-    function takePhoto() {
 
-      // Prevent double clicking
-      if (isCounting) {
-        return;
-      }
+/* Initial rain */
 
-      // Camera must be ready
-      if (
-        !stream ||
-        !video.srcObject ||
-        video.readyState < 2 ||
-        video.videoWidth === 0 ||
-        video.videoHeight === 0
-      ) {
+for (let i = 0; i < 20; i++) {
 
-        alert("Camera abhi ready nahi hai bhai 😅");
-        return;
-      }
-
-      isCounting = true;
-      takeBtn.disabled = true;
-
-      let number = 3;
-
-      countdown.innerText = number;
-
-      countdownTimer = setInterval(() => {
-
-        number--;
-
-        if (number > 0) {
-          countdown.innerText = number;
-        }
-
-        if (number === 0) {
-
-          clearInterval(countdownTimer);
-          countdownTimer = null;
-
-          countdown.innerText = "📸";
-
-          // Small delay ensures latest video frame is available
-          setTimeout(() => {
-
-            capturePhoto();
-
-          }, 250);
-        }
-
-      }, 1000);
-    }
-
-
-    // ------------------------------------
-    // CAPTURE PHOTO
-    // ------------------------------------
-    function capturePhoto() {
-
-      try {
-
-        // Re-check video before capturing
-        if (
-          video.readyState < 2 ||
-          video.videoWidth === 0 ||
-          video.videoHeight === 0
-        ) {
-
-          throw new Error("Video frame not ready");
-        }
-
-        const width = video.videoWidth;
-        const height = video.videoHeight;
-
-        canvas.width = width;
-        canvas.height = height;
-
-        const ctx = canvas.getContext("2d", {
-          alpha: false
-        });
-
-        ctx.clearRect(0, 0, width, height);
-
-        /*
-          IMPORTANT FIX:
-
-          Do NOT stop the camera after taking a photo.
-
-          The old code did:
-          stream.getTracks().forEach(track => track.stop());
-
-          That caused the second capture to become black.
-        */
-
-        ctx.drawImage(
-          video,
-          0,
-          0,
-          width,
-          height
-        );
-
-        // Generate fresh image
-        const imageData = canvas.toDataURL(
-          "image/jpeg",
-          0.92
-        );
-
-        // Remove previous object URL if any
-        if (lastPhotoURL) {
-          URL.revokeObjectURL(lastPhotoURL);
-          lastPhotoURL = null;
-        }
-
-        photo.src = imageData;
-        photo.style.display = "block";
-
-        saveBtn.style.display = "inline-block";
-
-        countdown.innerText = "Photo clicked ❤️";
-
-        status.innerText =
-          "Photo ready! Dobara bhi click kar sakte ho 📸";
-
-      } catch (error) {
-
-        console.error("Capture Error:", error);
-
-        countdown.innerText = "❌";
-
-        status.innerText =
-          "Photo capture nahi ho payi. Camera restart karo.";
-
-      } finally {
-
-        isCounting = false;
-        takeBtn.disabled = false;
-      }
-    }
-
-
-    // ------------------------------------
-    // SAVE PHOTO
-    // ------------------------------------
-    function savePhoto() {
-
-      if (!canvas.width || !canvas.height) {
-
-        alert("Pehle photo click karo bhai 📸");
-        return;
-      }
-
-      canvas.toBlob(
-        function(blob) {
-
-          if (!blob) {
-            alert("Photo save nahi ho payi.");
-            return;
-          }
-
-          const url = URL.createObjectURL(blob);
-
-          const link = document.createElement("a");
-
-          link.href = url;
-          link.download =
-            "Mithlesh-Maam-" +
-            Date.now() +
-            ".jpg";
-
-          document.body.appendChild(link);
-
-          link.click();
-
-          link.remove();
-
-          setTimeout(() => {
-            URL.revokeObjectURL(url);
-          }, 1000);
-
-        },
-        "image/jpeg",
-        0.92
-      );
-    }
-
-
-    // ------------------------------------
-    // STOP CAMERA
-    // ------------------------------------
-    function stopCamera() {
-
-      if (stream) {
-
-        stream.getTracks().forEach(track => {
-          try {
-            track.stop();
-          } catch (e) {
-            console.warn(e);
-          }
-        });
-
-        stream = null;
-      }
-
-      video.srcObject = null;
-    }
-
-
-    // ------------------------------------
-    // RESTART CAMERA
-    // ------------------------------------
-    restartBtn.addEventListener("click", () => {
-
-      countdown.innerText = "";
-
-      photo.style.display = "none";
-
-      saveBtn.style.display = "none";
-
-      startCamera();
-    });
-
-
-    // ------------------------------------
-    // BUTTON EVENTS
-    // ------------------------------------
-    takeBtn.addEventListener(
-      "click",
-      takePhoto
+    setTimeout(
+        createRainDrop,
+        Math.random() * 1800
     );
 
-    saveBtn.addEventListener(
-      "click",
-      savePhoto
-    );
+}
 
-
-    // ------------------------------------
-    // PAGE LOAD
-    // ------------------------------------
-    window.addEventListener(
-      "load",
-      startCamera
-    );
-
-
-    // ------------------------------------
-    // CLEANUP
-    // ------------------------------------
-    window.addEventListener(
-      "beforeunload",
-      () => {
-
-        if (countdownTimer) {
-          clearInterval(countdownTimer);
-        }
-
-        stopCamera();
-
-        if (lastPhotoURL) {
-          URL.revokeObjectURL(lastPhotoURL);
-        }
-      }
-    );
-
-  </script>
+</script>
 
 </body>
 </html>
