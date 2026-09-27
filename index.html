@@ -24,7 +24,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    padding: 18px;
+
     overflow: hidden;
 
     font-family:
@@ -49,6 +51,7 @@ body {
     position: relative;
 }
 
+
 /* =========================
    RAIN
 ========================= */
@@ -56,29 +59,37 @@ body {
 .rain {
     position: fixed;
     inset: 0;
+
     overflow: hidden;
+
     pointer-events: none;
+
     z-index: 1;
 }
 
 .drop {
     position: absolute;
-    top: -40px;
-    width: 1.5px;
-    height: 45px;
 
-    background: linear-gradient(
-        transparent,
-        rgba(125, 64, 71, 0.22)
-    );
+    top: -50px;
+
+    width: 1.5px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(125, 64, 71, .25)
+        );
 
     border-radius: 50%;
-    animation: rainFall linear forwards;
+
+    animation:
+        rainFall linear forwards;
 }
 
 @keyframes rainFall {
+
     from {
-        transform: translateY(-50px);
+        transform: translateY(-60px);
         opacity: 0;
     }
 
@@ -96,6 +107,7 @@ body {
     }
 }
 
+
 /* =========================
    FLOWERS
 ========================= */
@@ -103,17 +115,26 @@ body {
 .flowers {
     position: fixed;
     inset: 0;
+
     pointer-events: none;
+
     z-index: 2;
 }
 
 .flower {
     position: absolute;
+
     font-size: 22px;
 
     filter:
-        drop-shadow(0 0 7px rgba(255, 150, 190, .7))
-        drop-shadow(0 0 16px rgba(255, 180, 210, .45));
+        drop-shadow(
+            0 0 7px
+            rgba(255, 150, 190, .8)
+        )
+        drop-shadow(
+            0 0 18px
+            rgba(255, 180, 210, .5)
+        );
 
     animation:
         flowerFloat 6s ease-in-out infinite,
@@ -121,26 +142,25 @@ body {
 }
 
 .flower:nth-child(1) {
-    left: 8%;
-    top: 15%;
-    animation-delay: .2s;
+    left: 7%;
+    top: 14%;
 }
 
 .flower:nth-child(2) {
-    right: 9%;
-    top: 20%;
+    right: 8%;
+    top: 19%;
     animation-delay: 1s;
 }
 
 .flower:nth-child(3) {
     left: 5%;
-    bottom: 20%;
+    bottom: 19%;
     animation-delay: 1.7s;
 }
 
 .flower:nth-child(4) {
     right: 6%;
-    bottom: 15%;
+    bottom: 14%;
     animation-delay: 2.3s;
 }
 
@@ -159,16 +179,22 @@ body {
 }
 
 @keyframes flowerFloat {
+
     0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-18px) rotate(8deg);
+        transform:
+            translateY(-18px)
+            rotate(8deg);
     }
 }
 
 @keyframes flowerGlow {
+
     from {
         opacity: .55;
     }
@@ -178,60 +204,74 @@ body {
     }
 }
 
+
 /* =========================
-   CARD
+   MAIN CARD
 ========================= */
 
 .card {
+
     position: relative;
+
     z-index: 5;
 
     width: 100%;
+
     max-width: 470px;
 
     padding: 30px;
 
     background:
-        rgba(255, 255, 255, 0.96);
+        rgba(255, 255, 255, .96);
 
-    border: 1px solid rgba(255, 255, 255, .9);
+    border:
+        1px solid
+        rgba(255, 255, 255, .9);
 
     border-radius: 28px;
 
     /*
-       HUGE 1000px SHADOW
+       EXTRA LARGE 1000px SHADOW
     */
 
     box-shadow:
-        0 25px 1000px rgba(125, 64, 71, .18),
-        0 20px 55px rgba(0, 0, 0, .12);
+
+        0 25px 1000px
+        rgba(125, 64, 71, .18),
+
+        0 20px 55px
+        rgba(0, 0, 0, .12);
 
     backdrop-filter: blur(14px);
+
     -webkit-backdrop-filter: blur(14px);
 
     animation:
-        cardIn .8s cubic-bezier(.22, 1, .36, 1),
-        cardFloat 6s ease-in-out infinite;
+        cardIn .8s
+        cubic-bezier(.22, 1, .36, 1);
 
     overflow: hidden;
 }
 
-/* subtle flower glow behind card */
+
+/* Flower glow inside card */
 
 .card::before {
+
     content: "";
+
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
 
-    top: -90px;
+    top: -100px;
     right: -70px;
 
     background:
         radial-gradient(
             circle,
-            rgba(255, 170, 200, .35),
+            rgba(255, 170, 200, .38),
             transparent 70%
         );
 
@@ -240,7 +280,11 @@ body {
     pointer-events: none;
 }
 
+
+/* Small flower */
+
 .card::after {
+
     content: "🌸";
 
     position: absolute;
@@ -253,17 +297,25 @@ body {
     opacity: .45;
 
     filter:
-        drop-shadow(0 0 10px rgba(255, 130, 180, .8));
+        drop-shadow(
+            0 0 10px
+            rgba(255, 130, 180, .8)
+        );
 
-    animation: flowerGlow 2s infinite alternate;
+    animation:
+        flowerGlow 2s
+        infinite alternate;
 }
+
 
 /* =========================
    HEADER
 ========================= */
 
 .header {
+
     text-align: center;
+
     margin-bottom: 22px;
 
     animation:
@@ -271,13 +323,16 @@ body {
 }
 
 .logo {
+
     width: 70px;
     height: 70px;
 
     margin: auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 22px;
@@ -294,35 +349,45 @@ body {
     color: white;
 
     box-shadow:
-        0 10px 30px rgba(125, 64, 71, .25),
-        0 0 35px rgba(255, 160, 190, .22);
+
+        0 10px 30px
+        rgba(125, 64, 71, .25),
+
+        0 0 35px
+        rgba(255, 160, 190, .22);
 
     animation:
-        logoIn .8s cubic-bezier(.22,1,.36,1),
-        logoFloat 4s ease-in-out infinite;
+        logoIn .8s
+        cubic-bezier(.22,1,.36,1);
 }
 
 h1 {
+
     margin-top: 15px;
 
     font-size: 22px;
+
     font-weight: 700;
 
     color: #2e2e2e;
 }
 
 .subtitle {
+
     margin-top: 6px;
 
     font-size: 13px;
+
     color: #888;
 }
+
 
 /* =========================
    APPRECIATION
 ========================= */
 
 .appreciation {
+
     margin-bottom: 18px;
 
     padding: 17px;
@@ -334,64 +399,82 @@ h1 {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 244, 248, .95),
-            rgba(250, 246, 243, .95)
+            rgba(255,244,248,.96),
+            rgba(250,246,243,.96)
         );
 
-    border: 1px solid #eadfe1;
+    border:
+        1px solid #eadfe1;
 
     box-shadow:
-        0 8px 25px rgba(125, 64, 71, .06);
+        0 8px 25px
+        rgba(125,64,71,.06);
 
-    animation: fadeUp .7s .25s both;
+    animation:
+        fadeUp .7s .25s both;
 }
 
 .appreciation .line {
+
     display: block;
 
     color: #444;
 
     font-size: 14px;
+
     line-height: 1.65;
 }
 
 .appreciation .special {
+
+    display: block;
+
     margin-top: 5px;
 
     color: #7d4047;
 
     font-size: 15px;
+
     font-weight: 700;
 
     text-shadow:
-        0 0 12px rgba(255, 160, 190, .35);
+        0 0 12px
+        rgba(255,160,190,.35);
 }
 
 .appreciation .reason {
+
     margin-top: 8px;
 
     color: #666;
 
     font-size: 12px;
+
+    line-height: 1.5;
 }
+
 
 /* =========================
    MESSAGE
 ========================= */
 
 .message-box {
+
     background: #faf9f7;
 
-    border: 1px solid #e5e1dc;
+    border:
+        1px solid #e5e1dc;
 
     border-radius: 18px;
 
     padding: 18px;
 
-    animation: fadeUp .7s .35s both;
+    animation:
+        fadeUp .7s .35s both;
 }
 
 .message {
+
     color: #343434;
 
     font-size: 15px;
@@ -400,16 +483,20 @@ h1 {
 }
 
 .highlight {
+
     color: #7d4047;
+
     font-weight: 600;
 }
 
 .question {
+
     margin-top: 18px;
 
     padding-top: 15px;
 
-    border-top: 1px solid #e5e1dc;
+    border-top:
+        1px solid #e5e1dc;
 
     text-align: center;
 
@@ -420,21 +507,25 @@ h1 {
     color: #333;
 }
 
+
 /* =========================
    BUTTONS
 ========================= */
 
 .buttons {
+
     display: grid;
 
     gap: 12px;
 
     margin-top: 18px;
 
-    animation: fadeUp .7s .5s both;
+    animation:
+        fadeUp .7s .5s both;
 }
 
 button {
+
     width: 100%;
 
     padding: 16px 14px;
@@ -458,34 +549,45 @@ button {
 }
 
 button:hover {
-    transform: translateY(-3px);
 
-    filter: brightness(1.04);
+    transform:
+        translateY(-3px);
+
+    filter:
+        brightness(1.04);
 }
 
 button:active {
-    transform: scale(.97);
+
+    transform:
+        scale(.97);
 }
 
 .yes {
+
     background: #25D366;
 
     box-shadow:
-        0 8px 22px rgba(37, 211, 102, .22);
+        0 8px 22px
+        rgba(37,211,102,.22);
 }
 
 .no {
+
     background: #7d4047;
 
     box-shadow:
-        0 8px 22px rgba(125, 64, 71, .22);
+        0 8px 22px
+        rgba(125,64,71,.22);
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 .footer {
+
     text-align: center;
 
     margin-top: 15px;
@@ -494,93 +596,98 @@ button:active {
 
     color: #999;
 
-    animation: fadeUp .7s .65s both;
+    animation:
+        fadeUp .7s .65s both;
 }
+
 
 /* =========================
    LOADING
 ========================= */
 
 button.loading {
+
     pointer-events: none;
+
     opacity: .75;
 }
 
 button.loading::after {
+
     content: " •••";
 
-    animation: dots 1s infinite;
+    animation:
+        dots 1s infinite;
 }
+
 
 /* =========================
    ANIMATIONS
 ========================= */
 
 @keyframes cardIn {
+
     from {
+
         opacity: 0;
+
         transform:
             translateY(35px)
             scale(.94);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
     }
 }
 
-@keyframes cardFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
 @keyframes fadeUp {
+
     from {
+
         opacity: 0;
-        transform: translateY(18px);
+
+        transform:
+            translateY(18px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 @keyframes logoIn {
+
     from {
+
         opacity: 0;
+
         transform:
             scale(.6)
             rotate(-10deg);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             scale(1)
             rotate(0);
     }
 }
 
-@keyframes logoFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
 @keyframes backgroundMove {
+
     0% {
         background-position: 0% 50%;
     }
@@ -595,6 +702,7 @@ button.loading::after {
 }
 
 @keyframes dots {
+
     0%, 20% {
         content: " •";
     }
@@ -608,6 +716,7 @@ button.loading::after {
     }
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -615,20 +724,27 @@ button.loading::after {
 @media (max-width: 500px) {
 
     body {
+
         padding: 14px;
     }
 
     .card {
+
         padding: 21px;
 
         border-radius: 23px;
 
         box-shadow:
-            0 20px 1000px rgba(125, 64, 71, .17),
-            0 15px 40px rgba(0, 0, 0, .11);
+
+            0 20px 1000px
+            rgba(125,64,71,.17),
+
+            0 15px 40px
+            rgba(0,0,0,.11);
     }
 
     .logo {
+
         width: 62px;
         height: 62px;
 
@@ -636,43 +752,56 @@ button.loading::after {
     }
 
     h1 {
+
         font-size: 20px;
     }
 
     .appreciation {
+
         padding: 14px;
     }
 
     .appreciation .line {
+
         font-size: 13px;
     }
 
     .appreciation .special {
+
         font-size: 14px;
     }
 
     .message {
+
         font-size: 14px;
     }
 
     button {
+
         padding: 15px 12px;
     }
 
     .flower {
+
         font-size: 18px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
+
 <!-- =========================
-     RAIN LAYER
+     RAIN
 ========================= -->
 
-<div class="rain" id="rain"></div>
+<div
+    class="rain"
+    id="rain">
+</div>
+
 
 <!-- =========================
      FLOWERS
@@ -681,20 +810,28 @@ button.loading::after {
 <div class="flowers">
 
     <div class="flower">🌸</div>
+
     <div class="flower">🌷</div>
+
     <div class="flower">🌺</div>
+
     <div class="flower">🌸</div>
+
     <div class="flower">✿</div>
+
     <div class="flower">🌷</div>
 
 </div>
 
 
 <!-- =========================
-     MAIN CARD
+     CARD
 ========================= -->
 
 <div class="card">
+
+
+    <!-- HEADER -->
 
     <div class="header">
 
@@ -718,22 +855,20 @@ button.loading::after {
     <div class="appreciation">
 
         <span class="line">
-          Commerce class ka yah sari class ka pata nahi 😅 
-           but Aap muhje achhi lagti ho ❤️
-          
+            Aap achhi lagti ho ❤️
         </span>
 
         <span class="line">
-             Because aap hamesha pyaar aur kindness se baat karti ho. 
+            But Commerce se kya pata nahi 😅
         </span>
 
         <span class="special">
-            orrr meri nazar mein aap hi
+            But meri nazar mein aap hi
             the best teacher in the world ho 🌸👩‍🏫
         </span>
 
         <div class="reason">
-            
+            Because aap hamesha pyaar aur kindness se baat karti ho. ❤️
         </div>
 
     </div>
@@ -745,28 +880,37 @@ button.loading::after {
 
         <div class="message">
 
-            Ma’am, 🙏<br><br>
+            Ma’am, 🙏
+
+            <br><br>
 
             The work will not be possible on Monday.
 
             <span class="highlight">
                 Please check it on Tuesday and get it done. 📅
-                
             </span>
+
+            <br><br>
+
+            If it cannot be done today,
+            please keep the message drafted on WhatsApp. 📝
 
         </div>
 
 
         <div class="question">
+
             Please let me know which option works for you. 😊
+
         </div>
 
     </div>
 
 
-    <!-- BUTTONS -->
+    <!-- WHATSAPP BUTTONS -->
 
     <div class="buttons">
+
 
         <button
             class="yes"
@@ -787,35 +931,36 @@ button.loading::after {
 
         </button>
 
+
     </div>
 
 
     <div class="footer">
+
         WhatsApp message will be prepared automatically
+
     </div>
+
 
 </div>
 
 
 <script>
 
-/* =========================
+/* ==================================================
    WHATSAPP
-========================= */
+   Works with mobile + PC
+================================================== */
 
 const phoneNumber = "917850965904";
+
 
 function openWhatsApp(option) {
 
     let message = "";
 
-    const button =
-        option === "yes"
-            ? document.getElementById("yesButton")
-            : document.getElementById("noButton");
 
-    button.classList.add("loading");
-
+    /* YES */
 
     if (option === "yes") {
 
@@ -829,6 +974,9 @@ Please check it on Tuesday and get the work completed. 📅
 Thank you! 😊`;
 
     }
+
+
+    /* NO */
 
     else {
 
@@ -851,14 +999,22 @@ Thank you!`;
         encodeURIComponent(message);
 
 
-    window.location.href = whatsappURL;
+    /*
+       IMPORTANT:
+       Do NOT use window.open here.
+
+       window.location.assign()
+       works better on mobile browsers.
+    */
+
+    window.location.assign(whatsappURL);
 
 }
 
 
-/* =========================
+/* ==================================================
    RANDOM RAIN
-========================= */
+================================================== */
 
 const rainContainer =
     document.getElementById("rain");
@@ -869,7 +1025,9 @@ function createRainDrop() {
     const drop =
         document.createElement("span");
 
-    drop.className = "drop";
+
+    drop.className =
+        "drop";
 
 
     drop.style.left =
@@ -880,12 +1038,8 @@ function createRainDrop() {
         (25 + Math.random() * 45) + "px";
 
 
-    drop.style.opacity =
-        (0.2 + Math.random() * 0.5);
-
-
     const duration =
-        0.6 + Math.random() * 1.2;
+        .6 + Math.random() * 1.2;
 
 
     drop.style.animationDuration =
@@ -904,15 +1058,21 @@ function createRainDrop() {
 }
 
 
-/* Rain continuously appears at random times */
+/* Continuous random rain */
 
 setInterval(() => {
 
     const amount =
-        Math.floor(Math.random() * 4) + 1;
+        Math.floor(
+            Math.random() * 4
+        ) + 1;
 
 
-    for (let i = 0; i < amount; i++) {
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
 
         createRainDrop();
 
@@ -923,7 +1083,11 @@ setInterval(() => {
 
 /* Initial rain */
 
-for (let i = 0; i < 20; i++) {
+for (
+    let i = 0;
+    i < 20;
+    i++
+) {
 
     setTimeout(
         createRainDrop,
