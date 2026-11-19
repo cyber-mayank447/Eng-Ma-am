@@ -1,475 +1,293 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For My Best Teacher 🌸</title>
+<title>Royal Leave Application</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ min-height:100vh;
+ background:radial-gradient(circle at top,#263e70,#080e20 70%);
+ font-family:Georgia,serif;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:25px 15px;
+ overflow-x:hidden;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
+body::before{
+ content:"";
+ position:fixed;
+ inset:0;
+ background:linear-gradient(120deg,transparent 35%,#ffffff0a 50%,transparent 65%);
+ background-size:200% 200%;
+ animation:shine 6s linear infinite;
+ pointer-events:none;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px;
-    overflow: hidden;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #f8f5f2, #ebe5df, #f9f7f4, #e9e1dc);
-    background-size: 400% 400%;
-    animation: backgroundMove 15s ease infinite;
-    position: relative;
+@keyframes shine{
+ from{background-position:-200% 0}
+ to{background-position:200% 0}
 }
 
-/* =========================
-   RAIN
-========================= */
-
-.rain {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
+.stars{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
 }
 
-.drop {
-    position: absolute;
-    top: -50px;
-    width: 1.5px;
-    background: linear-gradient(transparent, rgba(125, 64, 71, .25));
-    border-radius: 50%;
-    animation: rainFall linear forwards;
+.stars span{
+ position:absolute;
+ width:4px;
+ height:4px;
+ background:#ffe6a3;
+ border-radius:50%;
+ box-shadow:0 0 12px #ffdc8a;
+ animation:twinkle 2s infinite alternate;
 }
 
-@keyframes rainFall {
-    from {
-        transform: translateY(-60px);
-        opacity: 0;
-    }
-    10% {
-        opacity: .8;
-    }
-    90% {
-        opacity: .5;
-    }
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
+@keyframes twinkle{
+ from{opacity:.2;transform:scale(.6)}
+ to{opacity:1;transform:scale(1.5)}
 }
 
-/* =========================
-   FLOWERS
-========================= */
-
-.flowers {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
+.container{
+ width:100%;
+ max-width:700px;
+ position:relative;
+ animation:open 1.4s ease;
 }
 
-.flower {
-    position: absolute;
-    font-size: 22px;
-    filter: drop-shadow(0 0 7px rgba(255, 150, 190, .8)) drop-shadow(0 0 18px rgba(255, 180, 210, .5));
-    animation: flowerFloat 6s ease-in-out infinite, flowerGlow 2.5s ease-in-out infinite alternate;
+@keyframes open{
+ 0%{opacity:0;transform:translateY(60px) rotateX(12deg)}
+ 100%{opacity:1;transform:translateY(0) rotateX(0)}
 }
 
-.flower:nth-child(1) { left: 7%; top: 14%; }
-.flower:nth-child(2) { right: 8%; top: 19%; animation-delay: 1s; }
-.flower:nth-child(3) { left: 5%; bottom: 19%; animation-delay: 1.7s; }
-.flower:nth-child(4) { right: 6%; bottom: 14%; animation-delay: 2.3s; }
-.flower:nth-child(5) { left: 18%; top: 7%; font-size: 17px; animation-delay: .8s; }
-.flower:nth-child(6) { right: 18%; bottom: 7%; font-size: 17px; animation-delay: 1.4s; }
-
-@keyframes flowerFloat {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-18px) rotate(8deg); }
+.card{
+ background:linear-gradient(145deg,#fffdf6,#f5eedf);
+ border-radius:5px;
+ padding:45px;
+ position:relative;
+ box-shadow:0 25px 80px #0009,0 0 30px #d5ae6055;
+ border:2px solid #d7b66f;
 }
 
-@keyframes flowerGlow {
-    from { opacity: .55; }
-    to { opacity: 1; }
+.card::before{
+ content:"";
+ position:absolute;
+ inset:9px;
+ border:1px solid #c5a35e;
+ pointer-events:none;
 }
 
-/* =========================
-   MAIN CARD
-========================= */
-
-.card {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    max-width: 470px;
-    padding: 30px;
-    background: rgba(255, 255, 255, .96);
-    border: 1px solid rgba(255, 255, 255, .9);
-    border-radius: 28px;
-    box-shadow: 0 25px 1000px rgba(125, 64, 71, .18), 0 20px 55px rgba(0, 0, 0, .12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    animation: cardIn .8s cubic-bezier(.22, 1, .36, 1);
-    overflow: hidden;
+.ribbon{
+ position:absolute;
+ top:-13px;
+ left:50%;
+ transform:translateX(-50%);
+ background:linear-gradient(90deg,#a77a30,#f4d58a,#a77a30);
+ color:#17213b;
+ padding:9px 30px;
+ font-size:12px;
+ letter-spacing:4px;
+ font-weight:bold;
+ box-shadow:0 5px 15px #0005;
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    top: -100px;
-    right: -70px;
-    background: radial-gradient(circle, rgba(255, 170, 200, .38), transparent 70%);
-    filter: blur(15px);
-    pointer-events: none;
+.logo{
+ text-align:center;
+ font-size:43px;
+ margin:15px 0;
+ animation:float 3s ease-in-out infinite;
 }
 
-.card::after {
-    content: "🌸";
-    position: absolute;
-    right: 18px;
-    top: 12px;
-    font-size: 30px;
-    opacity: .45;
-    filter: drop-shadow(0 0 10px rgba(255, 130, 180, .8));
-    animation: flowerGlow 2s infinite alternate;
+@keyframes float{
+ 50%{transform:translateY(-8px)}
 }
 
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    text-align: center;
-    margin-bottom: 22px;
-    animation: fadeUp .7s .15s both;
+h1{
+ text-align:center;
+ color:#172849;
+ font-size:29px;
+ letter-spacing:3px;
+ margin-bottom:10px;
 }
 
-.logo {
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 22px;
-    font-size: 32px;
-    background: linear-gradient(145deg, #7d4047, #9c5a63);
-    color: white;
-    box-shadow: 0 10px 30px rgba(125, 64, 71, .25), 0 0 35px rgba(255, 160, 190, .22);
-    animation: logoIn .8s cubic-bezier(.22,1,.36,1);
+.goldline{
+ width:140px;
+ height:2px;
+ background:linear-gradient(90deg,transparent,#bb9145,transparent);
+ margin:15px auto 25px;
 }
 
-h1 {
-    margin-top: 15px;
-    font-size: 22px;
-    font-weight: 700;
-    color: #2e2e2e;
+.date{
+ text-align:right;
+ color:#78633c;
+ font-size:14px;
+ margin-bottom:20px;
 }
 
-.subtitle {
-    margin-top: 6px;
-    font-size: 13px;
-    color: #888;
+p{
+ color:#303544;
+ font-size:16px;
+ line-height:2;
+ margin-bottom:15px;
 }
 
-/* =========================
-   APPRECIATION
-========================= */
-
-.appreciation {
-    margin-bottom: 18px;
-    padding: 17px;
-    text-align: center;
-    border-radius: 18px;
-    background: linear-gradient(135deg, rgba(255,244,248,.96), rgba(250,246,243,.96));
-    border: 1px solid #eadfe1;
-    box-shadow: 0 8px 25px rgba(125,64,71,.06);
-    animation: fadeUp .7s .25s both;
+.subject{
+ margin:20px 0;
+ padding:14px;
+ background:#e9dfc8;
+ border-left:4px solid #b18a42;
+ color:#192b4a;
+ font-weight:bold;
+ font-size:15px;
 }
 
-.appreciation .line {
-    display: block;
-    color: #444;
-    font-size: 14px;
-    line-height: 1.65;
+.bodytext{
+ text-align:justify;
 }
 
-.appreciation .special {
-    display: block;
-    margin-top: 5px;
-    color: #7d4047;
-    font-size: 15px;
-    font-weight: 700;
-    text-shadow: 0 0 12px rgba(255,160,190,.35);
+.details{
+ padding:18px;
+ border:1px solid #ddcda9;
+ background:#ffffff85;
+ margin:20px 0;
+ border-radius:4px;
 }
 
-.appreciation .reason {
-    margin-top: 8px;
-    color: #666;
-    font-size: 12px;
-    line-height: 1.5;
+.signature{
+ margin-top:25px;
+ color:#172849;
+ line-height:2;
+ font-size:15px;
 }
 
-/* =========================
-   MESSAGE
-========================= */
-
-.message-box {
-    background: #faf9f7;
-    border: 1px solid #e5e1dc;
-    border-radius: 18px;
-    padding: 18px;
-    animation: fadeUp .7s .35s both;
+.seal{
+ width:65px;
+ height:65px;
+ border:2px solid #b58b43;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#a47c39;
+ font-size:27px;
+ margin:20px auto 0;
+ transform:rotate(-12deg);
+ opacity:.8;
 }
 
-.message {
-    color: #343434;
-    font-size: 15px;
-    line-height: 1.75;
+.btn{
+ display:block;
+ margin:25px auto 0;
+ padding:14px 32px;
+ background:linear-gradient(90deg,#b18742,#f1d18a,#b18742);
+ color:#14213d;
+ border:none;
+ border-radius:3px;
+ font-weight:bold;
+ letter-spacing:1px;
+ font-size:14px;
+ cursor:pointer;
+ transition:.4s;
+ box-shadow:0 8px 20px #0005;
 }
 
-.highlight {
-    color: #7d4047;
-    font-weight: 600;
+.btn:hover{
+ transform:translateY(-5px);
+ box-shadow:0 12px 25px #0007;
 }
 
-.question {
-    margin-top: 18px;
-    padding-top: 15px;
-    border-top: 1px solid #e5e1dc;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
+@media(max-width:550px){
+ .card{padding:35px 23px}
+ h1{font-size:23px}
+ p{font-size:14px}
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons {
-    display: grid;
-    gap: 12px;
-    margin-top: 18px;
-    animation: fadeUp .7s .5s both;
-}
-
-button {
-    width: 100%;
-    padding: 16px 14px;
-    border: none;
-    border-radius: 14px;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-}
-
-button:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.04);
-}
-
-button:active {
-    transform: scale(.97);
-}
-
-.yes {
-    background: #25D366;
-    box-shadow: 0 8px 22px rgba(37,211,102,.22);
-}
-
-.no {
-    background: #7d4047;
-    box-shadow: 0 8px 22px rgba(125,64,71,.22);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 11px;
-    color: #999;
-    animation: fadeUp .7s .65s both;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes cardIn {
-    from {
-        opacity: 0;
-        transform: translateY(35px) scale(.94);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes logoIn {
-    from {
-        opacity: 0;
-        transform: scale(.6) rotate(-10deg);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
-
-@keyframes backgroundMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@media (max-width: 500px) {
-    body { padding: 14px; }
-    .card { padding: 21px; border-radius: 23px; }
-    .logo { width: 62px; height: 62px; font-size: 28px; }
-    h1 { font-size: 20px; }
-    .appreciation { padding: 14px; }
-    .appreciation .line { font-size: 13px; }
-    .appreciation .special { font-size: 14px; }
-    .message { font-size: 14px; }
-    button { padding: 15px 12px; }
-    .flower { font-size: 18px; }
+@media print{
+ body{background:white;display:block;padding:0}
+ body::before,.stars,.btn,.ribbon{display:none}
+ .container{max-width:100%;animation:none}
+ .card{box-shadow:none;border:1px solid #c5a35e}
 }
 </style>
 </head>
 
 <body>
 
-<div class="rain" id="rain"></div>
-
-<div class="flowers">
-    <div class="flower">🌸</div>
-    <div class="flower">🌷</div>
-    <div class="flower">🌺</div>
-    <div class="flower">🌸</div>
-    <div class="flower">✿</div>
-    <div class="flower">🌷</div>
+<div class="stars">
+<span style="top:10%;left:12%"></span>
+<span style="top:20%;left:85%"></span>
+<span style="top:65%;left:8%"></span>
+<span style="top:80%;left:90%"></span>
+<span style="top:45%;left:95%"></span>
+<span style="top:90%;left:35%"></span>
+<span style="top:15%;left:55%"></span>
 </div>
 
+<div class="container">
 <div class="card">
 
-    <div class="header">
-        <div class="logo">🌸</div>
-        <h1>Work Confirmation</h1>
-        <div class="subtitle">A small message for my teacher</div>
-    </div>
+<div class="ribbon">OFFICIAL REQUEST</div>
 
-    <div class="appreciation">
-        <span class="line">Aap achhi lagti ho ❤️</span>
-        <span class="line">But Commerce se kya pata nahi 😅</span>
-        <span class="special">But meri nazar mein aap hi the best teacher in the world ho 🌸👩‍🏫</span>
-        <div class="reason">Because aap hamesha pyaar aur kindness se baat karti ho. ❤️</div>
-    </div>
+<div class="logo">✉️</div>
 
-    <div class="message-box">
-        <div class="message">
-            Ma’am, 🙏<br><br>
-            The work will not be possible on Monday.<br>
-            <span class="highlight">Please check it on Tuesday and get it done. 📅</span><br><br>
-            If it cannot be done today, please keep the message drafted on WhatsApp. 📝
-        </div>
-        <div class="question">Please let me know which option works for you. 😊</div>
-    </div>
+<h1>LEAVE APPLICATION</h1>
+<div class="goldline"></div>
 
-    <div class="buttons">
-        <button class="yes" id="yesButton" onclick="openWhatsApp('yes')">
-            ✅ Yes, please get it done
-        </button>
-        <button class="no" id="noButton" onclick="openWhatsApp('no')">
-            📅 No, I’ll do it tomorrow
-        </button>
-    </div>
+<div class="date">
+Date: 19 November 2026
+</div>
 
-    <div class="footer">WhatsApp message will be prepared automatically</div>
+<p>
+To,<br>
+The Class Teacher,<br>
+[School Name]
+</p>
+
+<div class="subject">
+Subject: Request for One Day Leave on 20th November
+</div>
+
+<p>Respected Sir/Madam,</p>
+
+<div class="details">
+<p class="bodytext">
+With due respect, I wish to inform you that I will not be able to attend school on 20th November 2026 due to some personal reasons.
+</p>
+
+<p class="bodytext">
+I kindly request you to grant me leave for one day. I assure you that I will complete all the missed classwork.
+</p>
+
+<p class="bodytext">
+I shall be very grateful for your kind consideration.
+</p>
+</div>
+
+<p>Thank you for your time and understanding.</p>
+
+<div class="signature">
+Yours sincerely,<br><br>
+Name: ____________________<br>
+Class: ____________________<br>
+Roll Number: ______________
+</div>
+
+<div class="seal">✦</div>
 
 </div>
 
-<script>
-const phoneNumber = "917850965904";
+<button class="btn" onclick="window.print()">
+✧ PRINT APPLICATION ✧
+</button>
 
-function openWhatsApp(option) {
-    let message = "";
-
-    if (option === "yes") {
-        message = "Balak\n\nYes, Please check it on Tuesday and get the work completed.";
-    } else {
-        message = "Balak galt baaat\n\nkara dena Tuesday koo";
-    }
-
-    const whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-    window.location.assign(whatsappURL);
-}
-
-/* ==================================================
-   RANDOM RAIN
-================================================== */
-
-const rainContainer = document.getElementById("rain");
-
-function createRainDrop() {
-    const drop = document.createElement("span");
-    drop.className = "drop";
-    drop.style.left = Math.random() * 100 + "vw";
-    drop.style.height = (25 + Math.random() * 45) + "px";
-
-    const duration = .6 + Math.random() * 1.2;
-    drop.style.animationDuration = duration + "s";
-
-    rainContainer.appendChild(drop);
-
-    setTimeout(() => {
-        drop.remove();
-    }, duration * 1000 + 200);
-}
-
-setInterval(() => {
-    const amount = Math.floor(Math.random() * 4) + 1;
-    for (let i = 0; i < amount; i++) {
-        createRainDrop();
-    }
-}, 180);
-
-for (let i = 0; i < 20; i++) {
-    setTimeout(createRainDrop, Math.random() * 1800);
-}
-</script>
-
+</div>
 </body>
 </html>
