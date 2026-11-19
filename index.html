@@ -4,288 +4,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Leave Application</title>
-
+<title>Leave Application</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box}
 body{
- min-height:100vh;
- background:radial-gradient(circle at top,#263e70,#080e20 70%);
+ margin:0;padding:25px 15px;min-height:100vh;
+ display:flex;justify-content:center;align-items:center;
  font-family:Georgia,serif;
- display:flex;
- justify-content:center;
- align-items:center;
- padding:25px 15px;
- overflow-x:hidden;
+ background:radial-gradient(circle at top,#344b78,#080f20);
 }
-
-body::before{
- content:"";
- position:fixed;
- inset:0;
- background:linear-gradient(120deg,transparent 35%,#ffffff0a 50%,transparent 65%);
- background-size:200% 200%;
- animation:shine 6s linear infinite;
- pointer-events:none;
-}
-
-@keyframes shine{
- from{background-position:-200% 0}
- to{background-position:200% 0}
-}
-
-.stars{
- position:fixed;
- inset:0;
- pointer-events:none;
-}
-
-.stars span{
- position:absolute;
- width:4px;
- height:4px;
- background:#ffe6a3;
- border-radius:50%;
- box-shadow:0 0 12px #ffdc8a;
- animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
- from{opacity:.2;transform:scale(.6)}
- to{opacity:1;transform:scale(1.5)}
-}
-
-.container{
- width:100%;
- max-width:700px;
- position:relative;
- animation:open 1.4s ease;
-}
-
-@keyframes open{
- 0%{opacity:0;transform:translateY(60px) rotateX(12deg)}
- 100%{opacity:1;transform:translateY(0) rotateX(0)}
-}
-
 .card{
- background:linear-gradient(145deg,#fffdf6,#f5eedf);
- border-radius:5px;
- padding:45px;
- position:relative;
- box-shadow:0 25px 80px #0009,0 0 30px #d5ae6055;
- border:2px solid #d7b66f;
+ width:100%;max-width:700px;padding:40px;
+ background:linear-gradient(145deg,#fffdf7,#f3ead7);
+ border:2px solid #c7a45e;
+ box-shadow:0 20px 60px #0008;
+ animation:show 1s ease;
 }
-
-.card::before{
- content:"";
- position:absolute;
- inset:9px;
- border:1px solid #c5a35e;
- pointer-events:none;
+@keyframes show{
+ from{opacity:0;transform:translateY(40px)}
+ to{opacity:1;transform:translateY(0)}
 }
-
-.ribbon{
- position:absolute;
- top:-13px;
- left:50%;
- transform:translateX(-50%);
- background:linear-gradient(90deg,#a77a30,#f4d58a,#a77a30);
- color:#17213b;
- padding:9px 30px;
- font-size:12px;
- letter-spacing:4px;
- font-weight:bold;
- box-shadow:0 5px 15px #0005;
-}
-
-.logo{
- text-align:center;
- font-size:43px;
- margin:15px 0;
- animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
- 50%{transform:translateY(-8px)}
-}
-
-h1{
- text-align:center;
- color:#172849;
- font-size:29px;
- letter-spacing:3px;
- margin-bottom:10px;
-}
-
-.goldline{
- width:140px;
- height:2px;
- background:linear-gradient(90deg,transparent,#bb9145,transparent);
- margin:15px auto 25px;
-}
-
-.date{
- text-align:right;
- color:#78633c;
- font-size:14px;
- margin-bottom:20px;
-}
-
-p{
- color:#303544;
- font-size:16px;
- line-height:2;
- margin-bottom:15px;
-}
-
+h1{text-align:center;color:#172849;letter-spacing:3px}
+.line{width:130px;height:2px;background:#b58b43;margin:20px auto}
+p{color:#303544;line-height:1.9}
 .subject{
- margin:20px 0;
- padding:14px;
- background:#e9dfc8;
- border-left:4px solid #b18a42;
- color:#192b4a;
- font-weight:bold;
- font-size:15px;
+ padding:12px;background:#eee4ce;
+ border-left:4px solid #b18a42;font-weight:bold;
 }
-
-.bodytext{
- text-align:justify;
-}
-
-.details{
- padding:18px;
- border:1px solid #ddcda9;
- background:#ffffff85;
- margin:20px 0;
- border-radius:4px;
-}
-
+.date{text-align:right}
 .signature{
- margin-top:25px;
- color:#172849;
- line-height:2;
- font-size:15px;
+ display:flex;justify-content:space-between;
+ align-items:end;margin-top:30px;gap:15px;
 }
-
-.seal{
- width:65px;
- height:65px;
- border:2px solid #b58b43;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- color:#a47c39;
- font-size:27px;
- margin:20px auto 0;
- transform:rotate(-12deg);
- opacity:.8;
+.sign{text-align:center;font-size:14px}
+.sign img{width:160px;height:75px;object-fit:contain}
+button{
+ display:block;margin:30px auto;padding:13px 25px;
+ background:#b58b43;color:white;border:0;
+ cursor:pointer;font-weight:bold;
 }
-
-.btn{
- display:block;
- margin:25px auto 0;
- padding:14px 32px;
- background:linear-gradient(90deg,#b18742,#f1d18a,#b18742);
- color:#14213d;
- border:none;
- border-radius:3px;
- font-weight:bold;
- letter-spacing:1px;
- font-size:14px;
- cursor:pointer;
- transition:.4s;
- box-shadow:0 8px 20px #0005;
+@media(max-width:500px){
+ .card{padding:25px 18px}
+ .signature{flex-direction:column;align-items:flex-start}
+ .sign{align-self:flex-end}
 }
-
-.btn:hover{
- transform:translateY(-5px);
- box-shadow:0 12px 25px #0007;
-}
-
-@media(max-width:550px){
- .card{padding:35px 23px}
- h1{font-size:23px}
- p{font-size:14px}
-}
-
 @media print{
- body{background:white;display:block;padding:0}
- body::before,.stars,.btn,.ribbon{display:none}
- .container{max-width:100%;animation:none}
- .card{box-shadow:none;border:1px solid #c5a35e}
+ body{background:white;padding:0}
+ .card{box-shadow:none;animation:none}
+ button{display:none}
 }
 </style>
 </head>
-
 <body>
 
-<div class="stars">
-<span style="top:10%;left:12%"></span>
-<span style="top:20%;left:85%"></span>
-<span style="top:65%;left:8%"></span>
-<span style="top:80%;left:90%"></span>
-<span style="top:45%;left:95%"></span>
-<span style="top:90%;left:35%"></span>
-<span style="top:15%;left:55%"></span>
-</div>
-
-<div class="container">
 <div class="card">
 
-<div class="ribbon">OFFICIAL REQUEST</div>
-
-<div class="logo">✉️</div>
-
 <h1>LEAVE APPLICATION</h1>
-<div class="goldline"></div>
+<div class="line"></div>
 
-<div class="date">
-Date: 19 November 2026
-</div>
+<p class="date">Date: 19 November 2026</p>
 
 <p>
 To,<br>
-The class Teacher,<br>
+The Class Teacher,<br>
 [E-Planet Academy]
 </p>
 
 <div class="subject">
-Subject: Request for One Day Leave on 20th November 
+Subject: Application for One Day Leave on 20th November
 </div>
 
 <p>Respected Sir/Madam,</p>
 
-<div class="details">
-<p class="bodytext">
-With due respect, I wish to inform you that I will not be able to attend school on 20th November 2026 due to some personal reasons.
+<p>
+With due respect, I would like to inform you that
+I will be unable to attend school on
+<b>20th November 2026</b> due to some personal reasons.
 </p>
 
-<p class="bodytext">
-I kindly request you to grant me leave for one day. I assure you that I will complete all the missed classwork.
+<p>
+Therefore, I kindly request you to grant me leave
+for one day. I shall be grateful for your kind consideration.
 </p>
 
-<p class="bodytext">
-I shall be very grateful for your kind consideration.
-</p>
-</div>
-
-<p>Thank you for your time and understanding.</p>
+<p>Thank you for your understanding.</p>
 
 <div class="signature">
-Yours sincerely,<br><br>
-Name: Mayank Prajapat<br>
-Class: 12th <br>
-Roll Number: 14
+
+<div>
+Yours obediently,<br><br>
+Name: Mayank Prajapat <br>
+Class: 12th<br>
+Roll No.: 14
 </div>
 
-<div class="seal">✦</div>
+<div class="sign">
+<img src="signature.png" alt="Handwritten Signature">
+<br>
+<b>Signature</b>
+</div>
 
 </div>
 
-<button class="btn" onclick="window.print()">
-✧ PRINT APPLICATION ✧
+<button onclick="window.print()">
+PRINT APPLICATION
 </button>
 
 </div>
